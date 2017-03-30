@@ -15,11 +15,17 @@ public class DarkWalking : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
+            transform.eulerAngles = new Vector3(0f, 0f, 10f);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
+            transform.eulerAngles = new Vector3(0f, 0f, -10f);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
 }
