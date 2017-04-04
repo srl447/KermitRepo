@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour
     void Start()
     {
         rbodyDarK = GetComponent<Rigidbody>();
-        jumpAllowTimer = 2f;
+        jumpAllowTimer = .15f;
 
     }
 
@@ -29,32 +29,25 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKey(KeyCode.W))
         {
-            if (isGrounded || jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
+            if (jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
             {
-                movementFinal = true;
+              movementFinal = true;
             }
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.W))
         {
-            jumpAllowTimer = 2f;
+            jumpAllowTimer = 0;
         }
-
-        //if(alreadyJumped == true)
-        //{
-        //    jumpAllowTimer -= 1f;
-        //    if(jumpAllowTimer <= 0)
-        //    {
-        //        alreadyJumped = false;
-        //        jumpAllowTimer = 50f;
-        //    }
-        //}
     }
 
     void FixedUpdate()
     {
-
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        if(Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+              jumpAllowTimer = .15f;
+            }   
+            
         if (movementFinal == true)
         {
             rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
