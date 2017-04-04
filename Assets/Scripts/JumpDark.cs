@@ -10,6 +10,7 @@ public class JumpDark : MonoBehaviour
 
     bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
+    bool movementFinal = false;
 
     float jumpAllowTimer;
 
@@ -30,8 +31,7 @@ public class JumpDark : MonoBehaviour
         {
             if (isGrounded || jumpAllowTimer > 0)
             {
-                rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
-                jumpAllowTimer -= Time.deltaTime;
+                movementFinal = true;
             }
         }
         else
@@ -55,5 +55,11 @@ public class JumpDark : MonoBehaviour
 
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        if(movementFinal == true)
+        {
+            rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
+            jumpAllowTimer -= Time.deltaTime;
+            movementFinal = false;
+        }
     }
 }
