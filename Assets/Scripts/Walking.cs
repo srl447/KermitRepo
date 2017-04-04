@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Walking : MonoBehaviour {
     public float speed;
+    bool leftmove;
+    bool rightmove;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,10 +16,27 @@ public class Walking : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.A))
         {
+            leftmove = true;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rightmove = true;
+        }
+        else
+        {
+            leftmove = false;
+            rightmove = false;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (leftmove)
+        {
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
             transform.eulerAngles = new Vector3(0f, 0f, 10f);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (rightmove)
         {
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
             transform.eulerAngles = new Vector3(0f, 0f, -10f);
