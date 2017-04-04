@@ -6,6 +6,9 @@ public class DetectSlap : MonoBehaviour {
 
     void OnCollisionStay(Collision col)
     {
-        Debug.Log(name.ToString() + " GOT HIT");
+        if (col.gameObject.tag == "slap")
+        {
+            Debug.Log(name.ToString() + " GOT HIT");
+        }
     }
 }

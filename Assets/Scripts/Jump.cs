@@ -21,11 +21,8 @@ public class Jump : MonoBehaviour
 
     }
 
-
     void Update()
     {
-
-
         //JUMPING
         if (Input.GetKey(KeyCode.W))
         {
@@ -36,7 +33,7 @@ public class Jump : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
-            jumpAllowTimer = 0;
+            jumpAllowTimer = .1f;
         }
     }
 
