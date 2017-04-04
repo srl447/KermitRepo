@@ -10,6 +10,7 @@ public class Jump : MonoBehaviour
 
     bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
+    bool movementFinal = false;
 
     float jumpAllowTimer;
 
@@ -30,33 +31,28 @@ public class Jump : MonoBehaviour
         {
             if (jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
             {
-                rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
-                jumpAllowTimer -= Time.deltaTime;
-                Debug.Log(jumpAllowTimer);
+              movementFinal = true;
             }
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
             jumpAllowTimer = 0;
         }
-            //if(alreadyJumped == true)
-            //{
-            //    jumpAllowTimer -= 1f;
-            //    if(jumpAllowTimer <= 0)
-            //    {
-            //        alreadyJumped = false;
-            //        jumpAllowTimer = 50f;
-            //    }
-            //}
-        }
+    }
 
     void FixedUpdate()
     {
-
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
         if(Physics.Raycast(transform.position, Vector3.down, 1.1f))
             {
-            jumpAllowTimer = .15f;
+              jumpAllowTimer = .15f;
             }   
+            
+        if (movementFinal == true)
+        {
+            rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
+            jumpAllowTimer -= Time.deltaTime;
+            movementFinal = false;
+        }
     }
 }
