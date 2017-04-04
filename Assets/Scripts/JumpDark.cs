@@ -26,7 +26,7 @@ public class JumpDark : MonoBehaviour
 
 
         //JUMPING
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             if (isGrounded || jumpAllowTimer > 0)
             {

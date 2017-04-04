@@ -26,7 +26,7 @@ public class Jump : MonoBehaviour
 
 
         //JUMPING
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.W))
         {
             if (isGrounded || jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
             {
