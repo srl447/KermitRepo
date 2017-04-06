@@ -7,6 +7,7 @@ public class Walking : MonoBehaviour
     public float speed;
     bool leftmove;
     bool rightmove;
+    bool flipped;
 
     public KeyCode LeftCode;
     public KeyCode RightCode;
@@ -26,10 +27,12 @@ public class Walking : MonoBehaviour
         if (otherPlayer.transform.position.x < transform.position.x)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
+            bool flipped = false;
         }
         else
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
+            bool flipped = true;
         }
     }
 
@@ -40,7 +43,14 @@ public class Walking : MonoBehaviour
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
 
             // TILT CODE
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
+            if (flipped)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -350f);
+            }
         }
         if (rightmove)
         {
@@ -48,7 +58,14 @@ public class Walking : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
 
             // TILT CODE
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+            if (flipped)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 350f);
+            }
 
         }
         if (!leftmove && !rightmove)
