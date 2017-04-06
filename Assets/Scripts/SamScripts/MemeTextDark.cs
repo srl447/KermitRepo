@@ -8,7 +8,6 @@ public class MemeTextDark : MonoBehaviour
 
     string text1, text2, text3, text4, text5; //creates strings for all the text
     string[] allMemeText; //creates an array to store the text in
-    int round = GameManager.Instance.RoundCount; //sets round to the global roundcount 
     Text memeText; //The text to edit
                    // Use this for initialization
     void Start()
@@ -28,6 +27,6 @@ public class MemeTextDark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        memeText.text = allMemeText[round]; //changes the text to match the meme text corresponding with the current round
+        memeText.text = allMemeText[GameManager.Instance.RoundCount]; //changes the text to match the meme text corresponding with the current round
     }
 }

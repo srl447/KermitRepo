@@ -7,7 +7,7 @@ public class MemeText : MonoBehaviour
 {
     string text1, text2, text3, text4, text5; //creates strings for all the text
     string[] allMemeText; //creates an array to store the text in
-    int round = GameManager.Instance.RoundCount; //Needs to be set to the global round counters round
+    int round; //Variable to change text based on round
     Text memeText; //The text to edit
 	// Use this for initialization
 	void Start ()
@@ -22,6 +22,7 @@ public class MemeText : MonoBehaviour
 
         memeText = GetComponent<Text>(); //assigns the text component to the text thingy
         allMemeText = new string[] { text1, text2, text3, text4, text5 }; //puts all the strings into the array
+        round = GameManager.Instance.RoundCount; //sets round to the global roundcount 
     }
 	
 	// Update is called once per frame
