@@ -27,26 +27,32 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKey(jumpKey))
         {
-            if (jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
+            if (jumpAllowTimer > 0 && isGrounded) //could use transform.position.y as a constraint instead of IsGrounded
             {
               movementFinal = true;
             }
         }
-        else if (Input.GetKeyUp(jumpKey))
+        if (Input.GetKeyUp(jumpKey))
         {
-            jumpAllowTimer = .1f;
+            isGrounded = false;
+        }
+
+        if (jumpAllowTimer <= 0)
+        {
+            isGrounded = false;
         }
     }
 
     void FixedUpdate()
     {
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
-        if(Physics.Raycast(transform.position, Vector3.down, 1.1f))
+        if(Physics.Raycast(transform.position, Vector3.down, 1f))
             {
-              jumpAllowTimer = .15f;
+                jumpAllowTimer = .15f;
+                isGrounded = true;
             }   
             
-        if (movementFinal == true)
+        if (movementFinal)
         {
             _rigidbody.transform.Translate(0f, jumpSpeed, 0f);
             jumpAllowTimer -= Time.deltaTime;
