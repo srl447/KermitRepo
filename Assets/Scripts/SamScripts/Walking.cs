@@ -2,33 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walking : MonoBehaviour {
+public class Walking : MonoBehaviour
+{
     public float speed;
     bool leftmove;
     bool rightmove;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    public KeyCode LeftCode;
+    public KeyCode RightCode;
+
+    public GameObject otherPlayer;
+
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.A))
+        otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit");
+    }
+
+    void Update ()
+    {
+        leftmove = Input.GetKey(LeftCode);
+        rightmove = Input.GetKey(RightCode);
+
+        if (otherPlayer.transform.position.x < transform.position.x)
         {
-            leftmove = true;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
         }
         else
         {
-            leftmove = false;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rightmove = true;
-        }
-        else
-        {
-            rightmove = false;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
         }
     }
 
@@ -37,12 +38,18 @@ public class Walking : MonoBehaviour {
         if (leftmove)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
-            transform.eulerAngles = new Vector3(0f, 0f, 10f);
+
+            // TILT CODE
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
         }
         if (rightmove)
         {
+
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
-            transform.eulerAngles = new Vector3(0f, 180f, 10f);
+
+            // TILT CODE
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+
         }
         if (!leftmove && !rightmove)
         {

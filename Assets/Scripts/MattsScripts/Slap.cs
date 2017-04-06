@@ -4,62 +4,34 @@ using UnityEngine;
 
 public class Slap : MonoBehaviour
 {
-    public GameObject Player1HitBox;
-    public GameObject Player2HitBox;
-    public GameObject Player1;
-    public GameObject Player2;
+    public GameObject HitBox;
+    public float AttackCooldown;
+    public int AttackFrameCountdown;
+    public bool IsSlapping;
 
-    public float Player1AttackCooldown;
-    public float Player2AttackCooldown;
+    public KeyCode slapKey;
 
-    public int Player1AttackFrameCountdown;
-    public int Player2AttackFrameCountdown;
-
-    public bool player1IsSlapping;
-    public bool player2IsSlapping;
-	
-	void Update () {
-	    if (Input.GetKeyDown(KeyCode.LeftShift))
+    void Update () {
+	    if (Input.GetKeyDown(slapKey))
 	    {
-	        if (Player1AttackFrameCountdown == 0)
+	        if (AttackFrameCountdown == 0)
 	        {
-                StartCoroutine(Player1Slap());
+                StartCoroutine(SlapAction());
             }
 	    }
-	    if (Input.GetKeyDown(KeyCode.RightShift))
-	    {
-	        if (Player2AttackFrameCountdown == 0)
-	        {
-                StartCoroutine(Player2Slap());
-            }
-        }
 	}
 
-    IEnumerator Player1Slap()
+    IEnumerator SlapAction()
     {
-        Player1AttackFrameCountdown = 4;
-        Player1HitBox.SetActive(true);
-        Player1.GetComponent<Collider>().enabled = false;
-        while (Player1AttackFrameCountdown > 0)
+        AttackFrameCountdown = 4;
+        HitBox.SetActive(true);
+        GetComponent<Collider>().enabled = false;
+        while (AttackFrameCountdown > 0)
         {
-            --Player1AttackFrameCountdown;
+            --AttackFrameCountdown;
             yield return new WaitForEndOfFrame();
         }
-        Player1HitBox.SetActive(false);
-        Player1.GetComponent<Collider>().enabled = true;
-    }
-
-    IEnumerator Player2Slap()
-    {
-        Player2AttackFrameCountdown = 4;
-        Player2HitBox.SetActive(true);
-        Player2.GetComponent<Collider>().enabled = false;
-        while (Player2AttackFrameCountdown > 0)
-        {
-            --Player2AttackFrameCountdown;
-            yield return new WaitForEndOfFrame();
-        }
-        Player2HitBox.SetActive(false);
-        Player2.GetComponent<Collider>().enabled = true;
+        HitBox.SetActive(false);
+        GetComponent<Collider>().enabled = true;
     }
 }
