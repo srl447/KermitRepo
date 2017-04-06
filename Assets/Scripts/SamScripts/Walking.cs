@@ -27,12 +27,12 @@ public class Walking : MonoBehaviour
         if (otherPlayer.transform.position.x < transform.position.x)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
-            bool flipped = false;
+            flipped = false;
         }
         else
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
-            bool flipped = true;
+           flipped = true;
         }
     }
 
@@ -45,11 +45,11 @@ public class Walking : MonoBehaviour
             // TILT CODE
             if (flipped)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
             }
             else
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -350f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
             }
         }
         if (rightmove)
@@ -60,11 +60,11 @@ public class Walking : MonoBehaviour
             // TILT CODE
             if (flipped)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
             }
             else
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 350f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
             }
 
         }
