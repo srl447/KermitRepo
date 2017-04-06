@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpDark : MonoBehaviour
+public class Jump : MonoBehaviour
 {
-    Rigidbody rbodyDarK;
+    private Rigidbody _rigidbody;
 
     public float jumpSpeed;
 
@@ -14,26 +14,27 @@ public class JumpDark : MonoBehaviour
 
     float jumpAllowTimer;
 
+    public KeyCode jumpKey;
+
     void Start()
     {
-        rbodyDarK = GetComponent<Rigidbody>();
-        jumpAllowTimer = 2f;
+        _rigidbody = GetComponent<Rigidbody>();
+        jumpAllowTimer = .15f;
     }
-
 
     void Update()
     {
         //JUMPING
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(jumpKey))
         {
-            if (jumpAllowTimer > 0)
+            if (jumpAllowTimer > 0) //could use transform.position.y as a constraint instead of IsGrounded
             {
-                movementFinal = true;
+              movementFinal = true;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(jumpKey))
         {
-            jumpAllowTimer = 0;
+            jumpAllowTimer = .1f;
         }
     }
 
@@ -41,12 +42,13 @@ public class JumpDark : MonoBehaviour
     {
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
         if(Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+              jumpAllowTimer = .15f;
+            }   
+            
+        if (movementFinal == true)
         {
-            jumpAllowTimer = .15f;
-        }
-        if(movementFinal)
-        {
-            rbodyDarK.transform.Translate(0f, jumpSpeed, 0f);
+            _rigidbody.transform.Translate(0f, jumpSpeed, 0f);
             jumpAllowTimer -= Time.deltaTime;
             movementFinal = false;
         }
