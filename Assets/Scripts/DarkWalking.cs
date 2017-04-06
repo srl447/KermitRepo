@@ -7,9 +7,12 @@ public class DarkWalking : MonoBehaviour {
     bool leftmove;
     bool rightmove;
 
+    public KeyCode LeftCode;
+    public KeyCode RightCode;
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(LeftCode))
         {
             leftmove = true;
         }
@@ -17,7 +20,7 @@ public class DarkWalking : MonoBehaviour {
         {
             leftmove = false;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(RightCode))
         {
             rightmove = true;
         }
