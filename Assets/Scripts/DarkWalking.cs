@@ -6,13 +6,7 @@ public class DarkWalking : MonoBehaviour {
     public float speed;
     bool leftmove;
     bool rightmove;
-    // Use this for initialization
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -43,15 +37,11 @@ public class DarkWalking : MonoBehaviour {
         if (rightmove)
         {
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
-            transform.eulerAngles = new Vector3(0f, 0f, -10f);
+            transform.eulerAngles = new Vector3(0f, 180f, 10f);
         }
-        if (!rightmove && !leftmove)
+        if (!leftmove && !rightmove)
         {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
-        }
-        if (rightmove && leftmove)
-        {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
         }
     }
 }
