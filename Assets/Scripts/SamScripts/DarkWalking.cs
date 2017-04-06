@@ -19,13 +19,16 @@ public class DarkWalking : MonoBehaviour {
         {
             leftmove = true;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else
+        {
+            leftmove = false;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             rightmove = true;
         }
         else
         {
-            leftmove = false;
             rightmove = false;
         }
     }
@@ -37,12 +40,16 @@ public class DarkWalking : MonoBehaviour {
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
             transform.eulerAngles = new Vector3(0f, 0f, 10f);
         }
-        else if (rightmove)
+        if (rightmove)
         {
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
             transform.eulerAngles = new Vector3(0f, 0f, -10f);
         }
-        else
+        if (!rightmove && !leftmove)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        if (rightmove && leftmove)
         {
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
