@@ -25,7 +25,6 @@ public class DarkWalking : MonoBehaviour {
         {
             rightmove = false;
         }
-
     }
 
     void FixedUpdate()
@@ -38,9 +37,12 @@ public class DarkWalking : MonoBehaviour {
         if (rightmove)
         {
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
-            transform.eulerAngles = new Vector3(0f, 0f, -10f);
+            transform.eulerAngles = new Vector3(0f, 180f, 10f);
         }
-
+        if (!leftmove && !rightmove)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
+        }
     }
 }
 
