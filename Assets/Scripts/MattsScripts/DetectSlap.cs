@@ -47,34 +47,18 @@ public class DetectSlap : MonoBehaviour
     void resetWorld() //moved Matt's code here so I could execute it after rotation
     {
         Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
-            winCount++;
+        winCount++;
 
-            if (winCount >= 3)
-            {
-            // WIN JUICE!
-            //
-
-            //resetting my variables and timescale
-            Time.timeScale = 1;
-            timer = 0;
-            rotateCamera = false;
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                return;
-        }
-
-        ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
-
-        //resetting my variables and timescale
         Time.timeScale = 1;
-        timer = 0;
         rotateCamera = false;
 
-        if (GameManager.Instance.RoundCount >= 4)
+        if (winCount >= 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
         }
+
+        ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
         GameManager.Instance.RoundCount++;
 
         transform.position = startPos;
@@ -98,6 +82,7 @@ public class DetectSlap : MonoBehaviour
         }
         if (timer >= 90) //runs Matt's scripts when camera rotation done
         {
+            timer = 0;
             resetWorld();
         }
 
