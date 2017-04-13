@@ -61,6 +61,8 @@ public class DetectSlap : MonoBehaviour
         ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
         GameManager.Instance.RoundCount++;
 
+
+
         transform.position = startPos;
         transform.eulerAngles = startRot;
         Camera.main.transform.position = cameraStartPos;
