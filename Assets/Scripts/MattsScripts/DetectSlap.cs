@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DetectSlap : MonoBehaviour
 {
+    public int winCount = 0;
 
     public UI_Rounds ui_roundsScript;
 
@@ -25,12 +26,17 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap")
         {
-            Color colorToChangeTo = name == "kermitM" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
+            Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
 
             ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
 
-            if (GameManager.Instance.RoundCount >= 4)
+            winCount++;
+
+            if (winCount >= 3)
             {
+                // WIN JUICE!
+                //
+
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
