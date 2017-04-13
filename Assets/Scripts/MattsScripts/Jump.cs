@@ -34,15 +34,11 @@ public class Jump : MonoBehaviour
               movementFinal = true;
             }
         }
-        if (Input.GetKeyUp(jumpKey))
+        if (Input.GetKeyUp(jumpKey) || jumpAllowTimer <= 0)
         {
             isGrounded = false;
         }
-
-        if (jumpAllowTimer <= 0)
-        {
-            isGrounded = false;
-        }
+        
     }
 
     void FixedUpdate()
