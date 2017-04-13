@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DetectSlap : MonoBehaviour
 {
+    public int winCount = 0;
 
     public UI_Rounds ui_roundsScript;
 
@@ -46,6 +47,17 @@ public class DetectSlap : MonoBehaviour
     void resetWorld() //moved Matt's code here so I could execute it after rotation
     {
         Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
+            winCount++;
+
+            if (winCount >= 3)
+            {
+                // WIN JUICE!
+                //
+
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                return;
+            }
+            GameManager.Instance.RoundCount++;
 
         ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
 
