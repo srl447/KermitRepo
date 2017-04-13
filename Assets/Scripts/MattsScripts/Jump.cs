@@ -8,6 +8,8 @@ public class Jump : MonoBehaviour
 
     public float jumpSpeed;
 
+    public float gravity;
+
     bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
@@ -54,9 +56,13 @@ public class Jump : MonoBehaviour
             
         if (movementFinal)
         {
-            _rigidbody.transform.Translate(0f, jumpSpeed, 0f);
+            _rigidbody.AddForce(Vector3.up * jumpSpeed);
             jumpAllowTimer -= Time.deltaTime;
             movementFinal = false;
+        }
+        else if (!movementFinal && !isGrounded)
+        {
+            _rigidbody.AddForce(Vector3.down * gravity);
         }
     }
 }

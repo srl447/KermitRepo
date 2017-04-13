@@ -25,7 +25,7 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap")
         {
-            Color colorToChangeTo = name == "kermitM" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
+            Color colorToChangeTo = name == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
 
             ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
 
