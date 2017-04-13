@@ -51,13 +51,17 @@ public class DetectSlap : MonoBehaviour
 
             if (winCount >= 3)
             {
-                // WIN JUICE!
-                //
+            // WIN JUICE!
+            //
 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //resetting my variables and timescale
+            Time.timeScale = 1;
+            timer = 0;
+            rotateCamera = false;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
-            }
-            GameManager.Instance.RoundCount++;
+        }
 
         ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
 
