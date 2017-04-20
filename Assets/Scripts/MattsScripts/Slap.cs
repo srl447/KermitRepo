@@ -36,15 +36,7 @@ public class Slap : MonoBehaviour
                 // Close Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction(0, -.25f));
-                }
-            }
-            else if (_keyHoldCount < 40)
-	        {
-                // Average Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction(1, 0f));
+                    StartCoroutine(SlapAction(0, 0f));
                 }
             }
 	        else
@@ -52,7 +44,7 @@ public class Slap : MonoBehaviour
                 // Far Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction(2, .25f));
+                    StartCoroutine(SlapAction(2, .5f));
                 }
             }
             _keyHoldCount = 0;
@@ -68,10 +60,10 @@ public class Slap : MonoBehaviour
         _cooldownFrameCountdown = 8;
 
         //LOGIC FOR TRIGGERING ANIMATION
-        _animator.SetTrigger("Slap");
+        //_animator.SetTrigger("Slap");
         
         //LOGIC FOR RESETTING ANIMATION
-        _animator.ResetTrigger("Slap");
+        //_animator.ResetTrigger("Slap");
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
         HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
@@ -83,14 +75,14 @@ public class Slap : MonoBehaviour
         }
         
         HitBox.SetActive(true);
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
         while (_attackFrameCountdown > 0)
         {
             --_attackFrameCountdown;
             yield return new WaitForEndOfFrame();
         }
         HitBox.SetActive(false);
-        GetComponent<Collider>().enabled = true;
+        //GetComponent<Collider>().enabled = true;
 
         while (_cooldownFrameCountdown > 0)
         {
