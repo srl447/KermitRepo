@@ -38,7 +38,7 @@ public class DetectSlap : MonoBehaviour
     void CameraRotate() //initiates the rotating camera process
     {
         //moves the camera to the position needed to rotate
-        Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, (transform.position.x + otherPlayer.transform.position.x) / 3, cameraStartPos.z + 3);
+        Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, (transform.position.y + otherPlayer.transform.position.y) / 2, cameraStartPos.z + 3);
         Camera.main.transform.eulerAngles = new Vector3(11f, 45f, 0f);
         //changes the variable so code can run in update
         rotateCamera = true;
