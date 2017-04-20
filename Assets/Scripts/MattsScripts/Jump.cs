@@ -11,7 +11,7 @@ public class Jump : MonoBehaviour
 
     public float gravity;
 
-    bool isGrounded; //result of raycast below the player
+    public bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
 
@@ -23,7 +23,7 @@ public class Jump : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         jumpAllowTimer = 45f;
-        jumpSpeed = 20f;
+        jumpSpeed = 100f;
     }
 
     void Update()
@@ -59,8 +59,8 @@ public class Jump : MonoBehaviour
         if (movementFinal)
         {
             _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            jumpSpeed = 20f;
-            jumpAllowTimer = 60f;
+            jumpSpeed = 100f;
+            jumpAllowTimer = 45f;
             movementFinal = false;
 
         }

@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: 86e0da14c352cc744806b604b0563c62
+timeCreated: 1492715181
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: front1
+    100002: Head
+    100004: Hips
+    100006: //RootNode
+    100008: LeftClavicle
+    100010: LeftDownKnee
+    100012: LeftElbow
+    100014: LeftFoot
+    100016: LeftHand
+    100018: LeftHip
+    100020: LeftShoulder
+    100022: LeftUpKnee
+    100024: Neck
+    100026: pCube2
+    100028: pCube4
+    100030: pCylinder1
+    100032: polySurface1
+    100034: polySurface10
+    100036: polySurface11
+    100038: polySurface2
+    100040: polySurface3
+    100042: polySurface4
+    100044: polySurface4 1
+    100046: polySurface5
+    100048: polySurface6
+    100050: polySurface6 1
+    100052: polySurface8
+    100054: polySurface8 1
+    100056: polySurface9
+    100058: pSphere10
+    100060: pSphere3
+    100062: pSphere8
+    100064: pSphere9
+    100066: RightClavicle
+    100068: RightDownKnee
+    100070: RightElbow
+    100072: RightFoot
+    100074: RightHand
+    100076: RightHip
+    100078: RightShoulder
+    100080: RightUpKnee
+    100082: Spine1
+    100084: Spine2
+    100086: transform1
+    100088: transform10
+    100090: transform11
+    100092: transform12
+    100094: transform13
+    100096: transform14
+    100098: transform15
+    100100: transform16
+    100102: transform17
+    100104: transform18
+    100106: transform19
+    100108: transform20
+    100110: transform21
+    100112: transform22
+    100114: transform3
+    100116: transform6
+    100118: transform7
+    100120: transform8
+    100122: transform9
+    400000: front1
+    400002: Head
+    400004: Hips
+    400006: //RootNode
+    400008: LeftClavicle
+    400010: LeftDownKnee
+    400012: LeftElbow
+    400014: LeftFoot
+    400016: LeftHand
+    400018: LeftHip
+    400020: LeftShoulder
+    400022: LeftUpKnee
+    400024: Neck
+    400026: pCube2
+    400028: pCube4
+    400030: pCylinder1
+    400032: polySurface1
+    400034: polySurface10
+    400036: polySurface11
+    400038: polySurface2
+    400040: polySurface3
+    400042: polySurface4
+    400044: polySurface4 1
+    400046: polySurface5
+    400048: polySurface6
+    400050: polySurface6 1
+    400052: polySurface8
+    400054: polySurface8 1
+    400056: polySurface9
+    400058: pSphere10
+    400060: pSphere3
+    400062: pSphere8
+    400064: pSphere9
+    400066: RightClavicle
+    400068: RightDownKnee
+    400070: RightElbow
+    400072: RightFoot
+    400074: RightHand
+    400076: RightHip
+    400078: RightShoulder
+    400080: RightUpKnee
+    400082: Spine1
+    400084: Spine2
+    400086: transform1
+    400088: transform10
+    400090: transform11
+    400092: transform12
+    400094: transform13
+    400096: transform14
+    400098: transform15
+    400100: transform16
+    400102: transform17
+    400104: transform18
+    400106: transform19
+    400108: transform20
+    400110: transform21
+    400112: transform22
+    400114: transform3
+    400116: transform6
+    400118: transform7
+    400120: transform8
+    400122: transform9
+    7400000: JumpFalling
+    7400002: Crouch
+    7400004: JumpUp
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: JumpFalling
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 0
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: pCube2
+        weight: 0
+      - path: pCube2/transform1
+        weight: 0
+      - path: pCube4
+        weight: 0
+      - path: pCube4/transform3
+        weight: 0
+      - path: pCylinder1
+        weight: 0
+      - path: pCylinder1/transform7
+        weight: 0
+      - path: polySurface1
+        weight: 0
+      - path: polySurface1/transform9
+        weight: 0
+      - path: polySurface4
+        weight: 0
+      - path: polySurface4/transform16
+        weight: 0
+      - path: polySurface6
+        weight: 0
+      - path: polySurface6/polySurface8 1
+        weight: 0
+      - path: polySurface6/polySurface8 1/transform22
+        weight: 0
+      - path: polySurface6/polySurface9
+        weight: 0
+      - path: polySurface6/polySurface9/transform21
+        weight: 0
+      - path: polySurface6/polySurface10
+        weight: 0
+      - path: polySurface6/polySurface10/transform19
+        weight: 0
+      - path: polySurface6/polySurface11
+        weight: 0
+      - path: polySurface6/polySurface11/transform20
+        weight: 0
+      - path: polySurface6/transform18
+        weight: 0
+      - path: polySurface8
+        weight: 0
+      - path: pSphere3
+        weight: 0
+      - path: pSphere3/transform6
+        weight: 0
+      - path: pSphere8
+        weight: 0
+      - path: pSphere8/transform8
+        weight: 0
+      - path: pSphere9
+        weight: 0
+      - path: pSphere9/transform10
+        weight: 0
+      - path: pSphere10
+        weight: 0
+      - path: pSphere10/polySurface2
+        weight: 0
+      - path: pSphere10/polySurface2/transform13
+        weight: 0
+      - path: pSphere10/polySurface3
+        weight: 0
+      - path: pSphere10/polySurface3/transform14
+        weight: 0
+      - path: pSphere10/polySurface4 1
+        weight: 0
+      - path: pSphere10/polySurface4 1/transform15
+        weight: 0
+      - path: pSphere10/polySurface5
+        weight: 0
+      - path: pSphere10/polySurface5/transform12
+        weight: 0
+      - path: pSphere10/polySurface6 1
+        weight: 0
+      - path: pSphere10/polySurface6 1/transform17
+        weight: 0
+      - path: pSphere10/transform11
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Crouch
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 0
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: pCube2
+        weight: 0
+      - path: pCube2/transform1
+        weight: 0
+      - path: pCube4
+        weight: 0
+      - path: pCube4/transform3
+        weight: 0
+      - path: pCylinder1
+        weight: 0
+      - path: pCylinder1/transform7
+        weight: 0
+      - path: polySurface1
+        weight: 0
+      - path: polySurface1/transform9
+        weight: 0
+      - path: polySurface4
+        weight: 0
+      - path: polySurface4/transform16
+        weight: 0
+      - path: polySurface6
+        weight: 0
+      - path: polySurface6/polySurface8 1
+        weight: 0
+      - path: polySurface6/polySurface8 1/transform22
+        weight: 0
+      - path: polySurface6/polySurface9
+        weight: 0
+      - path: polySurface6/polySurface9/transform21
+        weight: 0
+      - path: polySurface6/polySurface10
+        weight: 0
+      - path: polySurface6/polySurface10/transform19
+        weight: 0
+      - path: polySurface6/polySurface11
+        weight: 0
+      - path: polySurface6/polySurface11/transform20
+        weight: 0
+      - path: polySurface6/transform18
+        weight: 0
+      - path: polySurface8
+        weight: 0
+      - path: pSphere3
+        weight: 0
+      - path: pSphere3/transform6
+        weight: 0
+      - path: pSphere8
+        weight: 0
+      - path: pSphere8/transform8
+        weight: 0
+      - path: pSphere9
+        weight: 0
+      - path: pSphere9/transform10
+        weight: 0
+      - path: pSphere10
+        weight: 0
+      - path: pSphere10/polySurface2
+        weight: 0
+      - path: pSphere10/polySurface2/transform13
+        weight: 0
+      - path: pSphere10/polySurface3
+        weight: 0
+      - path: pSphere10/polySurface3/transform14
+        weight: 0
+      - path: pSphere10/polySurface4 1
+        weight: 0
+      - path: pSphere10/polySurface4 1/transform15
+        weight: 0
+      - path: pSphere10/polySurface5
+        weight: 0
+      - path: pSphere10/polySurface5/transform12
+        weight: 0
+      - path: pSphere10/polySurface6 1
+        weight: 0
+      - path: pSphere10/polySurface6 1/transform17
+        weight: 0
+      - path: pSphere10/transform11
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: JumpUp
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 0
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: pCube2
+        weight: 0
+      - path: pCube2/transform1
+        weight: 0
+      - path: pCube4
+        weight: 0
+      - path: pCube4/transform3
+        weight: 0
+      - path: pCylinder1
+        weight: 0
+      - path: pCylinder1/transform7
+        weight: 0
+      - path: polySurface1
+        weight: 0
+      - path: polySurface1/transform9
+        weight: 0
+      - path: polySurface4
+        weight: 0
+      - path: polySurface4/transform16
+        weight: 0
+      - path: polySurface6
+        weight: 0
+      - path: polySurface6/polySurface8 1
+        weight: 0
+      - path: polySurface6/polySurface8 1/transform22
+        weight: 0
+      - path: polySurface6/polySurface9
+        weight: 0
+      - path: polySurface6/polySurface9/transform21
+        weight: 0
+      - path: polySurface6/polySurface10
+        weight: 0
+      - path: polySurface6/polySurface10/transform19
+        weight: 0
+      - path: polySurface6/polySurface11
+        weight: 0
+      - path: polySurface6/polySurface11/transform20
+        weight: 0
+      - path: polySurface6/transform18
+        weight: 0
+      - path: polySurface8
+        weight: 0
+      - path: pSphere3
+        weight: 0
+      - path: pSphere3/transform6
+        weight: 0
+      - path: pSphere8
+        weight: 0
+      - path: pSphere8/transform8
+        weight: 0
+      - path: pSphere9
+        weight: 0
+      - path: pSphere9/transform10
+        weight: 0
+      - path: pSphere10
+        weight: 0
+      - path: pSphere10/polySurface2
+        weight: 0
+      - path: pSphere10/polySurface2/transform13
+        weight: 0
+      - path: pSphere10/polySurface3
+        weight: 0
+      - path: pSphere10/polySurface3/transform14
+        weight: 0
+      - path: pSphere10/polySurface4 1
+        weight: 0
+      - path: pSphere10/polySurface4 1/transform15
+        weight: 0
+      - path: pSphere10/polySurface5
+        weight: 0
+      - path: pSphere10/polySurface5/transform12
+        weight: 0
+      - path: pSphere10/polySurface6 1
+        weight: 0
+      - path: pSphere10/polySurface6 1/transform17
+        weight: 0
+      - path: pSphere10/transform11
+        weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: Hips
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,11 +5,14 @@ using UnityEngine;
 public class Slap : MonoBehaviour
 {
     public GameObject HitBox;
+    public GameObject DownHitBox;
     public float AttackCooldown;
     public int AttackFrameCountdown;
     public bool IsSlapping;
 
     public KeyCode slapKey;
+
+
 
     void Update () {
 	    if (Input.GetKeyDown(slapKey))
@@ -19,6 +22,7 @@ public class Slap : MonoBehaviour
                 StartCoroutine(SlapAction());
             }
 	    }
+        
 	}
 
     IEnumerator SlapAction()

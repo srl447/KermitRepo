@@ -1,40 +1,10 @@
 fileFormatVersion: 2
-guid: d90300890f7830d49b8b5f4b632b2ffc
-timeCreated: 1491940012
+guid: 812ce02b75c274f48b0910707cb59663
+timeCreated: 1492543347
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: pCylinder1
-    100004: polySurface1
-    100006: polySurface2
-    100008: pSphere7
-    100010: pSphere8
-    100012: pSphere9
-    400000: //RootNode
-    400002: pCylinder1
-    400004: polySurface1
-    400006: polySurface2
-    400008: pSphere7
-    400010: pSphere8
-    400012: pSphere9
-    2300000: pCylinder1
-    2300002: polySurface1
-    2300004: polySurface2
-    2300006: pSphere8
-    2300008: pSphere9
-    3300000: pCylinder1
-    3300002: polySurface1
-    3300004: polySurface2
-    3300006: pSphere8
-    3300008: pSphere9
-    4300000: polySurface1
-    4300002: polySurface2
-    4300004: pCylinder1
-    4300006: pSphere8
-    4300008: pSphere9
-    9500000: //RootNode
+  fileIDToRecycleName: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -45,14 +15,13 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'RightUpperLeg' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -62,7 +31,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -97,7 +66,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
