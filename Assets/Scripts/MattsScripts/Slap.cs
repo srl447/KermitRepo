@@ -68,10 +68,10 @@ public class Slap : MonoBehaviour
         _cooldownFrameCountdown = 8;
 
         //LOGIC FOR TRIGGERING ANIMATION
-        _animator.SetTrigger("Slap");
+        //_animator.SetTrigger("Slap");
         
         //LOGIC FOR RESETTING ANIMATION
-        _animator.ResetTrigger("Slap");
+        //_animator.ResetTrigger("Slap");
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
         HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
