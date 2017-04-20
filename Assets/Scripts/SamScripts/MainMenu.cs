@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Reset : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
+
 	// Use this for initialization
 	void Start ()
     {
@@ -11,11 +12,11 @@ public class Reset : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.R))
+	void Update ()
+    {
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0); //fix or remove later
+            SceneManager.LoadScene(1);
         }
 	}
 }
