@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DetectSlap : MonoBehaviour
 {
     public int winCount = 0;
 
     public UI_Rounds ui_roundsScript;
-
+    public Image winImage;
     public Vector3 startPos;
     public Vector3 startRot;
     Vector3 cameraStartPos;
@@ -30,16 +31,32 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
+            winCount++;
             Time.timeScale = 0;
-            CameraRotate();
+            //if (winCount < 3)
+           //{
+                CameraRotate();
+            //}
+             if (winCount == 3)
+            {
+                GameEnd();
+            }
         }
     }
 
     void CameraRotate() //initiates the rotating camera process
     {
         //moves the camera to the position needed to rotate
-        Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, (transform.position.y + otherPlayer.transform.position.y) / 2, cameraStartPos.z + 3);
-        Camera.main.transform.eulerAngles = new Vector3(11f, 45f, 0f);
+        if (transform.position.x < otherPlayer.transform.position.x)
+        {
+            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) + 3, cameraStartPos.y, cameraStartPos.z + 11.4f);
+            Camera.main.transform.eulerAngles = new Vector3(11f, -45f, 0f);
+        }
+        if (transform.position.x > otherPlayer.transform.position.x)
+        {
+            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, cameraStartPos.y, cameraStartPos.z + 11.4f);
+            Camera.main.transform.eulerAngles = new Vector3(11f, 45f, 0f);
+        }
         //changes the variable so code can run in update
         rotateCamera = true;
     }
@@ -47,16 +64,15 @@ public class DetectSlap : MonoBehaviour
     void resetWorld() //moved Matt's code here so I could execute it after rotation
     {
         Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
-        winCount++;
 
         Time.timeScale = 1;
         rotateCamera = false;
 
-        if (winCount >= 3)
+        /*if (winCount >= 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             return;
-        }
+        }*/
 
         ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
         GameManager.Instance.RoundCount++;
@@ -70,6 +86,12 @@ public class DetectSlap : MonoBehaviour
         otherPlayer.transform.position = otherPlayer.startPos;
         otherPlayer.transform.eulerAngles = otherPlayer.startRot;
     }
+
+    void GameEnd()
+    {
+        winImage.enabled = !winImage.enabled;
+    }
+
     void Update()
     {
         if (!rotateCamera) //camera tracks cente rbetween players
@@ -78,11 +100,19 @@ public class DetectSlap : MonoBehaviour
         }
         if (rotateCamera) //rotates the camera
         {
-            Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
-            Camera.main.transform.position += new Vector3(.1f, 0f, 0f);
+            if(transform.position.x > otherPlayer.transform.position.x)
+            {
+                Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
+                Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
+            }
+            if (transform.position.x < otherPlayer.transform.position.x)
+            {
+                Camera.main.transform.eulerAngles += new Vector3(0f, 1f, 0f);
+                Camera.main.transform.position += new Vector3(-.05f, 0f, 0f);
+            }
             timer += 1;
         }
-        if (timer >= 90) //runs Matt's scripts when camera rotation done
+        if (timer >= 90 && winCount != 3) //runs Matt's scripts when camera rotation done
         {
             timer = 0;
             resetWorld();
