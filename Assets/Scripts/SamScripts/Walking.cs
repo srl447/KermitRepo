@@ -7,7 +7,7 @@ public class Walking : MonoBehaviour
     public float speed;
     bool leftmove;
     bool rightmove;
-    bool flipped;
+    public bool flipped;
 
     public KeyCode LeftCode;
     public KeyCode RightCode;
