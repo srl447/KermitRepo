@@ -6,11 +6,12 @@ public class Jump : MonoBehaviour
 {
     private Rigidbody _rigidbody;
 
-    public float jumpSpeed;
+    float jumpSpeed;
+    public float jumpIncrease;
 
     public float gravity;
 
-    bool isGrounded; //result of raycast below the player
+    public bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
 
@@ -21,7 +22,8 @@ public class Jump : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        jumpAllowTimer = .15f;
+        jumpAllowTimer = 45f;
+        jumpSpeed = 100f;
     }
 
     void Update()
@@ -29,14 +31,15 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKey(jumpKey))
         {
-            if (jumpAllowTimer > 0 && isGrounded) //could use transform.position.y as a constraint instead of IsGrounded
+            if (isGrounded && jumpAllowTimer > 0) 
             {
-              movementFinal = true;
+                -- jumpAllowTimer ;
+                jumpSpeed += jumpIncrease;
             }
         }
-        if (Input.GetKeyUp(jumpKey) || jumpAllowTimer <= 0)
+        if (Input.GetKeyUp(jumpKey))
         {
-            isGrounded = false;
+            movementFinal = true;
         }
         
     }
@@ -45,18 +48,23 @@ public class Jump : MonoBehaviour
     {
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
         if(Physics.Raycast(transform.position, Vector3.down, 1f))
-            {
-                jumpAllowTimer = .15f;
-                isGrounded = true;
-            }   
-            
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }  
+          
         if (movementFinal)
         {
-            _rigidbody.AddForce(Vector3.up * jumpSpeed);
-            jumpAllowTimer -= Time.deltaTime;
+            _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            jumpSpeed = 100f;
+            jumpAllowTimer = 45f;
             movementFinal = false;
+
         }
-        else if (!movementFinal && !isGrounded)
+        else if (!isGrounded)
         {
             _rigidbody.AddForce(Vector3.down * gravity);
         }
