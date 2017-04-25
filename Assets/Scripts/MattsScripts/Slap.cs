@@ -18,6 +18,9 @@ public class Slap : MonoBehaviour
     private Animator _animator;
     private Walking _walkingScript;
 
+    public AudioSource soundManager;
+    public AudioClip slap;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -37,6 +40,7 @@ public class Slap : MonoBehaviour
                 if (_cooldownFrameCountdown == 0)
                 {
                     StartCoroutine(SlapAction(0, -.25f));
+                    soundManager.PlayOneShot(slap);
                 }
             }
             else if (_keyHoldCount < 40)
