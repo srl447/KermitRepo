@@ -18,10 +18,13 @@ public class Slap : MonoBehaviour
     private Animator _animator;
     private Walking _walkingScript;
 
+    private int dir;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _walkingScript = GetComponent<Walking>();
+        dir = _walkingScript.flipped ? -1 : 1;
     }
 
     void Update () {
@@ -53,7 +56,6 @@ public class Slap : MonoBehaviour
 
     IEnumerator SlapAction(int indexOfAnimationToPlay, float scaleAdditive)
     {
-        int dir = _walkingScript.flipped ? -1 : 1;
 
         _prepFrameCountdown = 4;
         _attackFrameCountdown = 4;
