@@ -7,10 +7,16 @@ public class GameManager : Singleton<GameManager>
 {
     public int RoundCount = 0;
     public bool Paused = false;
+   
 
-    public void Awake()
+    void Awake()
     {
         RoundCount = 0;
         Paused = false;
+    }
+
+    void Start()
+    {
+        Application.targetFrameRate = 60;
     }
 }

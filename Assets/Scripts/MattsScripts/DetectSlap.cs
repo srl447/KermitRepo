@@ -20,6 +20,9 @@ public class DetectSlap : MonoBehaviour
     public DetectSlap otherPlayer;
     int timer;
 
+    public AudioSource soundManager;
+    public AudioClip win;
+
     public void Awake()
     {
         startPos = transform.position;
@@ -33,6 +36,7 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
+            soundManager.PlayOneShot(win);
             winCount++;
             Time.timeScale = 0;
             if (winCount < 3)

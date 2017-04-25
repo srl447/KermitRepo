@@ -15,13 +15,15 @@ public class Slap : MonoBehaviour
 
     public int _keyHoldCount;
 
-    private Animator _animator;
+    public Animator animator;
     private Walking _walkingScript;
+
+    private int dir;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
         _walkingScript = GetComponent<Walking>();
+        dir = _walkingScript.flipped ? -1 : 1;
     }
 
     void Update () {
@@ -36,15 +38,7 @@ public class Slap : MonoBehaviour
                 // Close Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction(0, -.25f));
-                }
-            }
-            else if (_keyHoldCount < 40)
-	        {
-                // Average Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction(1, 0f));
+                    StartCoroutine(SlapAction("ShortSlap", 0f));
                 }
             }
 	        else
@@ -52,51 +46,36 @@ public class Slap : MonoBehaviour
                 // Far Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction(2, .25f));
+                    StartCoroutine(SlapAction("LongSlap", .5f));
                 }
             }
             _keyHoldCount = 0;
 	    }
 	}
 
-    IEnumerator SlapAction(int indexOfAnimationToPlay, float scaleAdditive)
+    IEnumerator SlapAction(string animationTrigger, float scaleAdditive)
     {
-        int dir = _walkingScript.flipped ? -1 : 1;
-
-        _prepFrameCountdown = 4;
-        _attackFrameCountdown = 4;
-        _cooldownFrameCountdown = 8;
 
         //LOGIC FOR TRIGGERING ANIMATION
-        //_animator.SetTrigger("Slap");
         
-        //LOGIC FOR RESETTING ANIMATION
-        //_animator.ResetTrigger("Slap");
+        animator.SetTrigger(animationTrigger);
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
         HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
 
-        while (_prepFrameCountdown > 0 )
-        {
-            --_prepFrameCountdown;
-            yield return new WaitForEndOfFrame();
-        }
+
+        yield return new WaitForSecondsRealtime(.2f);
         
         HitBox.SetActive(true);
-        GetComponent<Collider>().enabled = false;
-        while (_attackFrameCountdown > 0)
-        {
-            --_attackFrameCountdown;
-            yield return new WaitForEndOfFrame();
-        }
-        HitBox.SetActive(false);
-        GetComponent<Collider>().enabled = true;
 
-        while (_cooldownFrameCountdown > 0)
-        {
-            --_cooldownFrameCountdown;
-            yield return new WaitForEndOfFrame();
-        }
+        yield return new WaitForSecondsRealtime(.2f);
+
+        HitBox.SetActive(false);
+
+        yield return new WaitForSecondsRealtime(.5f);
+
+        //LOGIC FOR RESETTING ANIMATION
+        animator.ResetTrigger(animationTrigger);
 
         HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - scaleAdditive, HitBox.transform.localScale.z);
