@@ -29,8 +29,20 @@ public class Slap : MonoBehaviour
     void Update () {
 	    if (Input.GetKey(slapKey))
 	    {
-	        ++_keyHoldCount;
-	    }
+            if (_keyHoldCount < 40)
+            {
+                ++_keyHoldCount;
+            }
+            if (_keyHoldCount >= 40)
+            {
+                // Far Slap
+                
+                    StartCoroutine(SlapAction("LongSlap", .75f));
+                _keyHoldCount = 0;
+
+            }
+
+        }
         if (Input.GetKeyUp(slapKey))
 	    {
 	        if (_keyHoldCount < 20)
@@ -38,7 +50,7 @@ public class Slap : MonoBehaviour
                 // Close Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction("ShortSlap", 0f));
+                    StartCoroutine(SlapAction("ShortSlap", .25f));
                 }
             }
 	        else
@@ -46,7 +58,7 @@ public class Slap : MonoBehaviour
                 // Far Slap
                 if (_cooldownFrameCountdown == 0)
                 {
-                    StartCoroutine(SlapAction("LongSlap", .5f));
+                    StartCoroutine(SlapAction("LongSlap", .75f));
                 }
             }
             _keyHoldCount = 0;
@@ -61,8 +73,14 @@ public class Slap : MonoBehaviour
         animator.SetTrigger(animationTrigger);
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
-        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
-
+        if (name == "Kermit")
+        {
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        }
+        else
+        {
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        }
 
         yield return new WaitForSecondsRealtime(.2f);
         
@@ -77,7 +95,14 @@ public class Slap : MonoBehaviour
         //LOGIC FOR RESETTING ANIMATION
         animator.ResetTrigger(animationTrigger);
 
-        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        if (name == "Kermit")
+        {
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        }
+        else
+        {
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        }
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - scaleAdditive, HitBox.transform.localScale.z);
     }
 }
