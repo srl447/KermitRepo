@@ -19,6 +19,11 @@ public class Jump : MonoBehaviour
 
     public KeyCode jumpKey;
 
+    public AudioSource soundManager;
+    public AudioClip crouch;
+    public AudioClip jump;
+    public AudioClip land;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
