@@ -127,7 +127,7 @@ public class DetectSlap : MonoBehaviour
 
         if(finalRotate) //rotates the camera forever on win
         {
-            Camera.main.transform.RotateAround(rotatePoint, Vector3.up, 5f);
+            Camera.main.transform.RotateAround(rotatePoint, Vector3.up, 3f);
             Camera.main.transform.RotateAround(transform.position, Vector3.up, 1f);
             Camera.main.transform.RotateAround(otherPlayer.transform.position, Vector3.up, 1f);
         }
