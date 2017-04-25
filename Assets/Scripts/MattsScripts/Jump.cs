@@ -6,7 +6,7 @@ public class Jump : MonoBehaviour
 {
     private Rigidbody _rigidbody;
 
-    float jumpSpeed;
+    public float jumpSpeed;
     public float jumpIncrease;
 
     public float gravity;
@@ -37,7 +37,7 @@ public class Jump : MonoBehaviour
                 jumpSpeed += jumpIncrease;
             }
         }
-        if (Input.GetKeyUp(jumpKey))
+        if (Input.GetKeyUp(jumpKey) && isGrounded)
         {
             movementFinal = true;
         }
@@ -47,15 +47,8 @@ public class Jump : MonoBehaviour
     void FixedUpdate()
     {
         //DO GROUNDED CHECK: shoot raycast just a little past bottom of capsule
-        if(Physics.Raycast(transform.position, Vector3.down, 1f))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }  
-          
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.4f);
+
         if (movementFinal)
         {
             _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);

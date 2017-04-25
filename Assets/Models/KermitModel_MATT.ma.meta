@@ -110,8 +110,11 @@ ModelImporter:
     400100: transform16
     400102: transform17
     2300000: polySurface6
+    2300002: polySurface7
     3300000: polySurface6
+    3300002: polySurface7
     4300000: polySurface6
+    4300002: polySurface7
     7400000: Slap
     9500000: //RootNode
   materials:
@@ -298,12 +301,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Hips
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d90300890f7830d49b8b5f4b632b2ffc,
+    type: 3}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
