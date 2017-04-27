@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: MoreKERMIT SHITITTT.ma
-//Last modified: Thu, Apr 20, 2017 03:50:24 PM
+//Last modified: Thu, Apr 20, 2017 06:54:25 PM
 //Codeset: 1252
 requires maya "2017";
 requires "stereoCamera" "10.0";
@@ -14,13 +14,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "AD0731A3-4FC4-EBA3-4B21-BDBF9698F6D3";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1.5027773678888281 1.3645242582605732 5.4062119945803007 ;
-	setAttr ".r" -type "double3" -10.538352937611096 -9012.9999999998017 4.0802704183061285e-016 ;
+	setAttr ".t" -type "double3" -0.63726276093002321 1.4520788881746187 8.5801666234368135 ;
+	setAttr ".r" -type "double3" -2.1383529369393761 -9003.4000000000306 -7.4675692415366465e-017 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C63331A9-4E38-D890-4303-BFA7026EC7BE";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 5.7810709028166851;
+	setAttr ".coi" 7.9680879474245163;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -75,7 +75,7 @@ createNode joint -n "Hips";
 	rename -uid "41851EF2-4A98-42DD-B9B0-DBB3A760AB70";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 0 0 -0.035888330698696957 ;
+	setAttr ".t" -type "double3" 0 0 -0.053531810349297992 ;
 	setAttr -av ".tx";
 	setAttr -av ".ty";
 	setAttr -av ".tz";

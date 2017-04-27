@@ -54,7 +54,9 @@ ModelImporter:
     400044: Spine1
     400046: Spine2
     4300000: polySurface4
-    7400000: Take 001
+    7400000: ShortSlap
+    7400002: LongSlap
+    7400004: Idle
     9500000: //RootNode
     13700000: polySurface4
   materials:
@@ -79,7 +81,235 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ShortSlap
+      takeName: Take 001
+      firstFrame: 66
+      lastFrame: 81
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 1
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LongSlap
+      takeName: Take 001
+      firstFrame: 82
+      lastFrame: 97
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 1
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 1
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
