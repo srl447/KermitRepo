@@ -27,57 +27,36 @@ public class Slap : MonoBehaviour
     }
 
     void Update () {
-	    if (Input.GetKey(slapKey))
+	    if (Input.GetKeyDown(slapKey) && !IsSlapping)
 	    {
-	        ++_keyHoldCount;
-	    }
-        if (Input.GetKeyUp(slapKey))
-	    {
-	        if (_keyHoldCount < 20)
-	        {
-                // Close Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction("ShortSlap", 0f));
-                }
-            }
-	        else
-	        {
-                // Far Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction("LongSlap", .5f));
-                }
-            }
-            _keyHoldCount = 0;
+	        StartCoroutine(SlapAction());
 	    }
 	}
 
-    IEnumerator SlapAction(string animationTrigger, float scaleAdditive)
+    IEnumerator SlapAction()
     {
-
+        IsSlapping = true;
         //LOGIC FOR TRIGGERING ANIMATION
         
-        animator.SetTrigger(animationTrigger);
+        animator.SetTrigger("Slap");
 
-        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
-        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + .75f, HitBox.transform.localScale.z);
+        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + .75f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
 
-
-        yield return new WaitForSecondsRealtime(.2f);
+        yield return new WaitForSecondsRealtime(.16f);
         
         HitBox.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(.2f);
+        yield return new WaitForSecondsRealtime(.1f);
 
         HitBox.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(.5f);
-
         //LOGIC FOR RESETTING ANIMATION
-        animator.ResetTrigger(animationTrigger);
+        animator.ResetTrigger("Slap");
 
-        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
-        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - scaleAdditive, HitBox.transform.localScale.z);
+        HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - .75f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - .75f, HitBox.transform.localScale.z);
+
+        IsSlapping = false;
     }
 }
