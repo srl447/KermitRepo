@@ -100,7 +100,7 @@ public class DetectSlap : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(rotatePoint);
+        //Debug.Log(rotatePoint);
         if (!rotateCamera) //camera tracks cente rbetween players
         {
             Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
