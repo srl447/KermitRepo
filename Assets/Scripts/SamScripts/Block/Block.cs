@@ -18,7 +18,7 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //checking for block button
+        if (Input.GetKeyDown(KeyCode.E) && !slap1.IsSlapping) //checking for block button
         {
             StartCoroutine(blockStartup(.08f)); //starting block sequence
         }
@@ -29,7 +29,7 @@ public class Block : MonoBehaviour
         slap1.enabled = !slap1.enabled; //disables slap command
         yield return new WaitForSeconds(startup); //waits to start blocking
         cube.SetActive(true);
-        StartCoroutine(blockDuration(.3f)); //starts duration of blocking
+        StartCoroutine(blockDuration(.2f)); //starts duration of blocking
     }
 
     IEnumerator blockDuration(float duration) //block duration
@@ -37,7 +37,7 @@ public class Block : MonoBehaviour
         gameObject.layer = 10;
         MoveToLayer(gameObject.transform, 10); //activates function to put children in layer
         yield return new WaitForSeconds(duration); //block lasts for this time
-        StartCoroutine(blockEndLag(.2f)); // starts endlag
+        StartCoroutine(blockEndLag(.12f)); // starts endlag
     }
 
     IEnumerator blockEndLag(float endLag) //block end lag
