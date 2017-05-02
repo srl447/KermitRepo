@@ -23,6 +23,8 @@ public class DetectSlap : MonoBehaviour
     public AudioSource soundManager;
     public AudioClip win;
 
+    private Animator _animator;
+
     public void Awake()
     {
         startPos = transform.position;
@@ -30,6 +32,7 @@ public class DetectSlap : MonoBehaviour
         cameraStartPos = Camera.main.transform.position;
         cameraStartRot = Camera.main.transform.eulerAngles;
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit").GetComponent<DetectSlap>();
+        _animator = transform.GetChild(2).GetComponent<Animator>();
     }
 
     void OnCollisionStay(Collision col)
@@ -41,10 +44,12 @@ public class DetectSlap : MonoBehaviour
             Time.timeScale = 0f;
             if (winCount < 3)
             {
+                _animator.SetTrigger("React");
                 CameraRotate();
             }
             else  if (winCount == 3)
             {
+                _animator.SetTrigger("React");
                 GameEnd();
             }
         }
@@ -82,6 +87,9 @@ public class DetectSlap : MonoBehaviour
 
         ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
         GameManager.Instance.RoundCount++;
+
+        _animator.ResetTrigger("React");
+        otherPlayer.GetComponent<DetectSlap>()._animator.ResetTrigger("React");
 
         transform.position = startPos;
         transform.eulerAngles = startRot;
