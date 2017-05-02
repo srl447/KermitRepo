@@ -43,30 +43,32 @@ public class Walking : MonoBehaviour
         if (leftmove)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
-			kermitAnimator.SetInteger ("State", 2);
             // TILT CODE
             if (flipped)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -5f);
+                kermitAnimator.SetInteger("State", 2);
             }
             else
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 5f);
+                kermitAnimator.SetInteger("State", 1);
             }
         }
         if (rightmove)
         {
 
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
-			kermitAnimator.SetInteger ("State", 1);
             // TILT CODE
             if (flipped)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 5f);
+                kermitAnimator.SetInteger("State", 1);
             }
             else
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -10f);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -5f);
+                kermitAnimator.SetInteger("State", 2);
             }
 
         }
