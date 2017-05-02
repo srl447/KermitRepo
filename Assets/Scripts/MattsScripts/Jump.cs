@@ -7,43 +7,31 @@ public class Jump : MonoBehaviour
     private Rigidbody _rigidbody;
 
     public float jumpSpeed;
-    public float jumpIncrease;
 
     public float gravity;
 
     public bool isGrounded; //result of raycast below the player
     bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
-
-    float jumpAllowTimer;
+    
 
     public KeyCode jumpKey;
 
     public AudioSource soundManager;
-    public AudioClip crouch;
     public AudioClip jump;
     public AudioClip land;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        jumpAllowTimer = 45f;
-        jumpSpeed = 100f;
     }
 
     void Update()
     {
         //JUMPING
-        if (Input.GetKey(jumpKey))
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
-            if (isGrounded && jumpAllowTimer > 0) 
-            {
-                -- jumpAllowTimer ;
-                jumpSpeed += jumpIncrease;
-            }
-        }
-        if (Input.GetKeyUp(jumpKey) && isGrounded)
-        {
+            soundManager.PlayOneShot(jump);
             movementFinal = true;
         }
         
@@ -57,8 +45,6 @@ public class Jump : MonoBehaviour
         if (movementFinal)
         {
             _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            jumpSpeed = 100f;
-            jumpAllowTimer = 45f;
             movementFinal = false;
 
         }

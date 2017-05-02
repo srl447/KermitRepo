@@ -58,7 +58,7 @@ public class Slap : MonoBehaviour
 
         //LOGIC FOR TRIGGERING ANIMATION
         
-        animator.SetTrigger(animationTrigger);
+        //animator.SetTrigger(animationTrigger);
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
         HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
