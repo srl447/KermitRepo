@@ -52,6 +52,8 @@ public class Slap : MonoBehaviour
 
         HitBox.SetActive(false);
 
+        yield return new WaitForSecondsRealtime(.66f - .18f - .08f);
+
         animator.ResetTrigger("Slap");
 
         if (name == "Kermit")
