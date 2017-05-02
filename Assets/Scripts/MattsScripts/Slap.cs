@@ -21,6 +21,7 @@ public class Slap : MonoBehaviour
     }
 
     void Update () {
+
 	    if (Input.GetKeyDown(slapKey) && !IsSlapping)
 	    {
 	        StartCoroutine(SlapAction());
@@ -62,7 +63,6 @@ public class Slap : MonoBehaviour
             HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - .5f, HitBox.transform.localScale.z);
-
 
         IsSlapping = false;
     }

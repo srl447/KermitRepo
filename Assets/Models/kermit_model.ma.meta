@@ -4,7 +4,110 @@ timeCreated: 1492541890
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: front1
+    100002: Head
+    100004: Hips
+    100006: //RootNode
+    100008: LeftClavicle
+    100010: LeftDownKnee
+    100012: LeftElbow
+    100014: LeftFoot
+    100016: LeftHand
+    100018: LeftHip
+    100020: LeftShoulder
+    100022: LeftUpKnee
+    100024: Neck
+    100026: pCube2
+    100028: pCube4
+    100030: pCylinder1
+    100032: polySurface1
+    100034: polySurface2
+    100036: polySurface3
+    100038: polySurface4
+    100040: polySurface4 1
+    100042: polySurface5
+    100044: polySurface6
+    100046: pSphere10
+    100048: pSphere3
+    100050: pSphere8
+    100052: pSphere9
+    100054: RightClavicle
+    100056: RightDownKnee
+    100058: RightElbow
+    100060: RightFoot
+    100062: RightHand
+    100064: RightHip
+    100066: RightShoulder
+    100068: RightUpKnee
+    100070: Spine1
+    100072: Spine2
+    100074: transform1
+    100076: transform10
+    100078: transform11
+    100080: transform12
+    100082: transform13
+    100084: transform14
+    100086: transform15
+    100088: transform3
+    100090: transform6
+    100092: transform7
+    100094: transform8
+    100096: transform9
+    400000: front1
+    400002: Head
+    400004: Hips
+    400006: //RootNode
+    400008: LeftClavicle
+    400010: LeftDownKnee
+    400012: LeftElbow
+    400014: LeftFoot
+    400016: LeftHand
+    400018: LeftHip
+    400020: LeftShoulder
+    400022: LeftUpKnee
+    400024: Neck
+    400026: pCube2
+    400028: pCube4
+    400030: pCylinder1
+    400032: polySurface1
+    400034: polySurface2
+    400036: polySurface3
+    400038: polySurface4
+    400040: polySurface4 1
+    400042: polySurface5
+    400044: polySurface6
+    400046: pSphere10
+    400048: pSphere3
+    400050: pSphere8
+    400052: pSphere9
+    400054: RightClavicle
+    400056: RightDownKnee
+    400058: RightElbow
+    400060: RightFoot
+    400062: RightHand
+    400064: RightHip
+    400066: RightShoulder
+    400068: RightUpKnee
+    400070: Spine1
+    400072: Spine2
+    400074: transform1
+    400076: transform10
+    400078: transform11
+    400080: transform12
+    400082: transform13
+    400084: transform14
+    400086: transform15
+    400088: transform3
+    400090: transform6
+    400092: transform7
+    400094: transform8
+    400096: transform9
+    2300000: polySurface6
+    3300000: polySurface6
+    4300000: polySurface6
+    7400000: Take 001
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
