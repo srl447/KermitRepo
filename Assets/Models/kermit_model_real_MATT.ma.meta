@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: 2a475fd35f0a20b49873516a53fd57a5
+timeCreated: 1493745813
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: front1
+    100002: Head
+    100004: Hips
+    100006: //RootNode
+    100008: LeftClavicle
+    100010: LeftDownKnee
+    100012: LeftElbow
+    100014: LeftFoot
+    100016: LeftHand
+    100018: LeftHip
+    100020: LeftShoulder
+    100022: LeftUpKnee
+    100024: Neck
+    100026: polySurface4
+    100028: RightClavicle
+    100030: RightDownKnee
+    100032: RightElbow
+    100034: RightFoot
+    100036: RightHand
+    100038: RightHip
+    100040: RightShoulder
+    100042: RightUpKnee
+    100044: Spine1
+    100046: Spine2
+    400000: front1
+    400002: Head
+    400004: Hips
+    400006: //RootNode
+    400008: LeftClavicle
+    400010: LeftDownKnee
+    400012: LeftElbow
+    400014: LeftFoot
+    400016: LeftHand
+    400018: LeftHip
+    400020: LeftShoulder
+    400022: LeftUpKnee
+    400024: Neck
+    400026: polySurface4
+    400028: RightClavicle
+    400030: RightDownKnee
+    400032: RightElbow
+    400034: RightFoot
+    400036: RightHand
+    400038: RightHip
+    400040: RightShoulder
+    400042: RightUpKnee
+    400044: Spine1
+    400046: Spine2
+    4300000: polySurface4
+    7400000: Slap
+    9500000: //RootNode
+    13700000: polySurface4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Slap
+      takeName: Take 001
+      firstFrame: 66
+      lastFrame: 81
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: front1
+        weight: 1
+      - path: Hips
+        weight: 1
+      - path: Hips/LeftHip
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee
+        weight: 1
+      - path: Hips/LeftHip/LeftUpKnee/LeftDownKnee/LeftFoot
+        weight: 1
+      - path: Hips/RightHip
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee
+        weight: 1
+      - path: Hips/RightHip/RightUpKnee/RightDownKnee/RightFoot
+        weight: 1
+      - path: Hips/Spine1
+        weight: 1
+      - path: Hips/Spine1/Spine2
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/LeftClavicle/LeftShoulder/LeftElbow/LeftHand
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck
+        weight: 1
+      - path: Hips/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow
+        weight: 1
+      - path: Hips/Spine1/Spine2/RightClavicle/RightShoulder/RightElbow/RightHand
+        weight: 1
+      - path: polySurface4
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
