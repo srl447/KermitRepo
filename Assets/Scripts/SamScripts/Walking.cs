@@ -14,6 +14,8 @@ public class Walking : MonoBehaviour
 
     public GameObject otherPlayer;
 
+	public Animator kermitAnimator;
+
     private void Start()
     {
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit");
@@ -41,7 +43,7 @@ public class Walking : MonoBehaviour
         if (leftmove)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed, Space.World);
-
+			kermitAnimator.SetInteger ("State", 2);
             // TILT CODE
             if (flipped)
             {
@@ -56,7 +58,7 @@ public class Walking : MonoBehaviour
         {
 
             transform.Translate(Vector3.right * Time.deltaTime * speed, Space.World);
-
+			kermitAnimator.SetInteger ("State", 1);
             // TILT CODE
             if (flipped)
             {
@@ -71,6 +73,7 @@ public class Walking : MonoBehaviour
         if (!leftmove && !rightmove)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
+			kermitAnimator.SetInteger ("State", 0);
         }
     }
 }

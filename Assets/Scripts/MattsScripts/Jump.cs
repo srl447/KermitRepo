@@ -24,11 +24,13 @@ public class Jump : MonoBehaviour
     public AudioClip jump;
     public AudioClip land;
 
+	public Animator kermitAnim;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         jumpAllowTimer = 45f;
-        jumpSpeed = 100f;
+        jumpSpeed = 110f;
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class Jump : MonoBehaviour
         if (Input.GetKeyUp(jumpKey) && isGrounded)
         {
             movementFinal = true;
+			kermitAnim.SetTrigger ("Jump");
         }
         
     }
@@ -56,8 +59,8 @@ public class Jump : MonoBehaviour
 
         if (movementFinal)
         {
-            _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            jumpSpeed = 100f;
+			_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            jumpSpeed = 110f;
             jumpAllowTimer = 45f;
             movementFinal = false;
 
