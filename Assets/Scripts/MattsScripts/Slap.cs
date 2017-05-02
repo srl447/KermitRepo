@@ -5,15 +5,9 @@ using UnityEngine;
 public class Slap : MonoBehaviour
 {
     public GameObject HitBox;
-    public float AttackCooldown;
-    private int _prepFrameCountdown;
-    private int _attackFrameCountdown;
-    private int _cooldownFrameCountdown;
     public bool IsSlapping;
 
     public KeyCode slapKey;
-
-    public int _keyHoldCount;
 
     public Animator animator;
     private Walking _walkingScript;
@@ -27,82 +21,49 @@ public class Slap : MonoBehaviour
     }
 
     void Update () {
-	    if (Input.GetKey(slapKey))
-	    {
-            if (_keyHoldCount < 40)
-            {
-                ++_keyHoldCount;
-            }
-            if (_keyHoldCount >= 40)
-            {
-                // Far Slap
-                
-                    StartCoroutine(SlapAction("LongSlap", .75f));
-                _keyHoldCount = 0;
 
-            }
-
-        }
-        if (Input.GetKeyUp(slapKey))
+	    if (Input.GetKeyDown(slapKey) && !IsSlapping)
 	    {
-	        if (_keyHoldCount < 20)
-	        {
-                // Close Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction("ShortSlap", .25f));
-                }
-            }
-	        else
-	        {
-                // Far Slap
-                if (_cooldownFrameCountdown == 0)
-                {
-                    StartCoroutine(SlapAction("LongSlap", .75f));
-                }
-            }
-            _keyHoldCount = 0;
+	        StartCoroutine(SlapAction());
 	    }
 	}
 
-    IEnumerator SlapAction(string animationTrigger, float scaleAdditive)
+    IEnumerator SlapAction()
     {
-
-        //LOGIC FOR TRIGGERING ANIMATION
+        IsSlapping = true;
         
-        animator.SetTrigger(animationTrigger);
+        animator.SetTrigger("Slap");
 
-        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + scaleAdditive, HitBox.transform.localScale.z);
+        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + .5f, HitBox.transform.localScale.z);
         if (name == "Kermit")
         {
-            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
         else
         {
-            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
 
-        yield return new WaitForSecondsRealtime(.2f);
-        
+        yield return new WaitForSecondsRealtime(.18f);
+     
         HitBox.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(.2f);
+        yield return new WaitForSecondsRealtime(.08f);
 
         HitBox.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(.5f);
-
-        //LOGIC FOR RESETTING ANIMATION
-        animator.ResetTrigger(animationTrigger);
+        animator.ResetTrigger("Slap");
 
         if (name == "Kermit")
         {
-            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x + .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
         else
         {
-            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - scaleAdditive * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
+            HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
-        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - scaleAdditive, HitBox.transform.localScale.z);
+        HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - .5f, HitBox.transform.localScale.z);
+
+        IsSlapping = false;
     }
 }
