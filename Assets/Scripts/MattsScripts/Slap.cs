@@ -12,10 +12,17 @@ public class Slap : MonoBehaviour
     public Animator animator;
     private Walking _walkingScript;
 
+    public TrailRenderer[] trailRenderers;
+
     private int dir;
 
     private void Start()
     {
+        foreach (TrailRenderer trail in trailRenderers)
+        {
+            trail.enabled = false;
+        }
+
         _walkingScript = GetComponent<Walking>();
         dir = _walkingScript.flipped ? -1 : 1;
     }
@@ -25,13 +32,20 @@ public class Slap : MonoBehaviour
 	    if (Input.GetKeyDown(slapKey) && !IsSlapping)
 	    {
 	        StartCoroutine(SlapAction());
+
 	    }
 	}
 
     IEnumerator SlapAction()
     {
         IsSlapping = true;
-        
+
+
+        foreach (TrailRenderer trail in trailRenderers)
+        {
+            trail.enabled = true;
+        }
+
         animator.SetTrigger("Slap");
 
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y + .5f, HitBox.transform.localScale.z);
@@ -52,6 +66,11 @@ public class Slap : MonoBehaviour
 
         HitBox.SetActive(false);
 
+        foreach (TrailRenderer trail in trailRenderers)
+        {
+            trail.enabled = false;
+        }
+
         yield return new WaitForSecondsRealtime(.66f - .18f - .08f);
 
         animator.ResetTrigger("Slap");
@@ -65,6 +84,8 @@ public class Slap : MonoBehaviour
             HitBox.transform.localPosition = new Vector3(HitBox.transform.localPosition.x - .5f * dir, HitBox.transform.localPosition.y, HitBox.transform.localPosition.z);
         }
         HitBox.transform.localScale = new Vector3(HitBox.transform.localScale.x, HitBox.transform.localScale.y - .5f, HitBox.transform.localScale.z);
+
+
 
         IsSlapping = false;
     }

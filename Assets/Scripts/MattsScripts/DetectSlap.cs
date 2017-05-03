@@ -23,6 +23,8 @@ public class DetectSlap : MonoBehaviour
     public AudioSource soundManager;
     public AudioClip win;
 
+    public GameObject slapEffect;
+
     private Animator _animator;
 
     public void Awake()
@@ -39,6 +41,10 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
+            //
+            GameObject effectObject = GameObject.Instantiate(slapEffect);
+            effectObject.transform.position = new Vector3(col.contacts[0].point.x, col.contacts[0].point.y + 1f, col.contacts[0].point.z);
+            //
             soundManager.PlayOneShot(win);
             winCount++;
             Time.timeScale = 0f;
@@ -140,5 +146,10 @@ public class DetectSlap : MonoBehaviour
             Camera.main.transform.RotateAround(otherPlayer.transform.position, Vector3.up, .8f);
         }
 
+    }
+
+    void ShowSlapEffect()
+    {
+        
     }
 }
