@@ -21,6 +21,8 @@ public class Jump : MonoBehaviour
     public AudioClip jump;
     public AudioClip land;
 
+	public Animator kermitAnim;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
