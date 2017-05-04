@@ -9,6 +9,8 @@ public class Block : MonoBehaviour
     public Slap slap1;
     public GameObject arm1, arm2; // need arms to change tags later
 
+	public Animator kermitAnim;
+
     // Use this for initialization
     void Start()
     {
@@ -28,6 +30,7 @@ public class Block : MonoBehaviour
     {
         slap1.enabled = !slap1.enabled; //disables slap command
         yield return new WaitForSeconds(startup); //waits to start blocking
+		kermitAnim.SetTrigger("Block");
         cube.SetActive(true);
         StartCoroutine(blockDuration(.2f)); //starts duration of blocking
     }
@@ -48,6 +51,7 @@ public class Block : MonoBehaviour
         gameObject.layer = 8;
         MoveToLayer(gameObject.transform, 8);
         yield return new WaitForSeconds(endLag); //waits for the endlag
+		kermitAnim.ResetTrigger("Block");
         slap1.enabled = !slap1.enabled; //re-enables slapping
     }
 
