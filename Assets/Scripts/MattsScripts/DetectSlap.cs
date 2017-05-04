@@ -80,7 +80,7 @@ public class DetectSlap : MonoBehaviour
 
     void resetWorld() //moved Matt's code here so I could execute it after rotation
     {
-        Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
+        //Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
 
         Time.timeScale = 1;
         rotateCamera = false;
@@ -91,7 +91,7 @@ public class DetectSlap : MonoBehaviour
             return;
         }*/
 
-        ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
+        //ui_roundsScript.ChangeLight(GameManager.Instance.RoundCount, colorToChangeTo);
         GameManager.Instance.RoundCount++;
 
         _animator.ResetTrigger("React");
