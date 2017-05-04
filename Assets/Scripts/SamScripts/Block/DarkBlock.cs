@@ -2,25 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour
-{
-
+public class DarkBlock : MonoBehaviour {
     public GameObject cube; //visual for testing
     public Slap slap1;
     public GameObject arm1, arm2; // need arms to change tags later
 
 	public Animator kermitAnim;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !slap1.IsSlapping) //checking for block button
+        if (Input.GetKeyDown(KeyCode.Slash) && !slap1.IsSlapping) //checking for block button
         {
             StartCoroutine(blockStartup(.08f)); //starting block sequence
         }
@@ -48,8 +40,8 @@ public class Block : MonoBehaviour
         cube.SetActive(false);
         arm1.tag = "slap"; //sets arms back to slap so they can work again
         arm2.tag = "slap";
-        gameObject.layer = 8;
-        MoveToLayer(gameObject.transform, 8);
+        gameObject.layer = 9;
+        MoveToLayer(gameObject.transform, 9);
         yield return new WaitForSeconds(endLag); //waits for the endlag
 		kermitAnim.ResetTrigger("Block");
         slap1.enabled = !slap1.enabled; //re-enables slapping
@@ -59,6 +51,6 @@ public class Block : MonoBehaviour
     {
         root.gameObject.layer = layer;
         foreach (Transform child in root)
-        MoveToLayer(child, layer);
+            MoveToLayer(child, layer);
     }
 }
