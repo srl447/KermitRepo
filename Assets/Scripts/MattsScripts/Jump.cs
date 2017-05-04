@@ -34,7 +34,7 @@ public class Jump : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
 			kermitAnim.SetInteger ("State", 3);
-			soundManager.PlayOneShot(jump);
+			AudioManager.Instance.audioSource.PlayOneShot(jump, .8f);
             movementFinal = true;
         }
         

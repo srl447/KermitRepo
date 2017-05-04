@@ -45,7 +45,7 @@ public class DetectSlap : MonoBehaviour
             GameObject effectObject = GameObject.Instantiate(slapEffect);
             effectObject.transform.position = new Vector3(col.contacts[0].point.x, col.contacts[0].point.y + 1f, col.contacts[0].point.z);
             //
-            soundManager.PlayOneShot(win);
+            AudioManager.Instance.PlayOneShot(win);
             winCount++;
             Time.timeScale = 0f;
             if (winCount < 3)
