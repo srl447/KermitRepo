@@ -21,6 +21,8 @@ public class Jump : MonoBehaviour
     public AudioClip jump;
     public AudioClip land;
 
+	public Animator kermitAnim;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -31,7 +33,8 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
-            soundManager.PlayOneShot(jump);
+			kermitAnim.SetInteger ("State", 3);
+			soundManager.PlayOneShot(jump);
             movementFinal = true;
         }
         
