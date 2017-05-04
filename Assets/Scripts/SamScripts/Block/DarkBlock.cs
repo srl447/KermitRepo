@@ -7,6 +7,8 @@ public class DarkBlock : MonoBehaviour {
     public Slap slap1;
     public GameObject arm1, arm2; // need arms to change tags later
 
+	public Animator kermitAnim;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +22,7 @@ public class DarkBlock : MonoBehaviour {
     {
         slap1.enabled = !slap1.enabled; //disables slap command
         yield return new WaitForSeconds(startup); //waits to start blocking
+		kermitAnim.SetTrigger("Block");
         cube.SetActive(true);
         StartCoroutine(blockDuration(.2f)); //starts duration of blocking
     }
@@ -40,6 +43,7 @@ public class DarkBlock : MonoBehaviour {
         gameObject.layer = 9;
         MoveToLayer(gameObject.transform, 9);
         yield return new WaitForSeconds(endLag); //waits for the endlag
+		kermitAnim.ResetTrigger("Block");
         slap1.enabled = !slap1.enabled; //re-enables slapping
     }
 
