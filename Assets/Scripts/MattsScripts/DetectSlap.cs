@@ -41,7 +41,7 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
-            //
+            // Shows Slap POW Effect
             GameObject effectObject = GameObject.Instantiate(slapEffect);
             effectObject.transform.position = new Vector3(col.contacts[0].point.x, col.contacts[0].point.y + 1f, col.contacts[0].point.z);
             //
@@ -146,10 +146,5 @@ public class DetectSlap : MonoBehaviour
             Camera.main.transform.RotateAround(otherPlayer.transform.position, Vector3.up, .8f);
         }
 
-    }
-
-    void ShowSlapEffect()
-    {
-        
     }
 }
