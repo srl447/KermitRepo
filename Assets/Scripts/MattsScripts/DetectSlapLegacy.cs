@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DetectSlap : MonoBehaviour
-{
+public class DetectSlapLegacy : MonoBehaviour {
     public int winCount = 0;
 
     public UI_Rounds ui_roundsScript;
@@ -47,13 +46,13 @@ public class DetectSlap : MonoBehaviour
             //
             AudioManager.Instance.PlayOneShot(win);
             winCount++;
-            Time.timeScale = .1f;
+            Time.timeScale = 0f;
             if (winCount < 3)
             {
                 _animator.SetTrigger("React");
-                StartCoroutine(CameraRotate(.01f));
+                CameraRotate();
             }
-            else  if (winCount == 3)
+            else if (winCount == 3)
             {
                 _animator.SetTrigger("React");
                 GameEnd();
@@ -61,7 +60,7 @@ public class DetectSlap : MonoBehaviour
         }
     }
 
-    IEnumerator CameraRotate(float waitTime) //initiates the rotating camera process
+    void CameraRotate() //initiates the rotating camera process
     {
         //moves the camera to the position needed to rotate
         if (transform.position.x < otherPlayer.transform.position.x)
@@ -76,21 +75,6 @@ public class DetectSlap : MonoBehaviour
         }
         //changes the variable so code can run in update
         rotateCamera = true;
-        for (int i = 0; i < 90; i++)
-        {
-            if (transform.position.x > otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
-                Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
-            }
-            if (transform.position.x < otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, 1f, 0f);
-                Camera.main.transform.position += new Vector3(-.05f, 0f, 0f);
-            }
-            yield return new WaitForSecondsRealtime(waitTime);
-        }
-        resetWorld();
     }
 
     void resetWorld() //moved Matt's code here so I could execute it after rotation
@@ -110,7 +94,7 @@ public class DetectSlap : MonoBehaviour
         GameManager.Instance.RoundCount++;
 
         _animator.ResetTrigger("React");
-        otherPlayer.GetComponent<DetectSlap>()._animator.ResetTrigger("React");
+        //otherPlayer.GetComponent<DetectSlap>()._animator.ResetTrigger("React");
 
         transform.position = startPos;
         transform.eulerAngles = startRot;
@@ -134,9 +118,9 @@ public class DetectSlap : MonoBehaviour
         {
             Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
-        /*if (rotateCamera) //rotates the camera
+        if (rotateCamera) //rotates the camera
         {
-            if(transform.position.x > otherPlayer.transform.position.x)
+            if (transform.position.x > otherPlayer.transform.position.x)
             {
                 Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
                 Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
@@ -153,8 +137,8 @@ public class DetectSlap : MonoBehaviour
             timer = 0;
             resetWorld();
         }
-        */
-        if(finalRotate) //rotates the camera forever on win
+
+        if (finalRotate) //rotates the camera forever on win
         {
             Camera.main.transform.RotateAround(rotatePoint, Vector3.up, .8f);
             Camera.main.transform.RotateAround(transform.position, Vector3.up, .8f);
@@ -162,25 +146,4 @@ public class DetectSlap : MonoBehaviour
         }
 
     }
-
-   /* IEnumerator cameraSwing()
-    {
-        Debug.Log("ran");
-        for (int i = 0; i < 90; i++)
-        {
-            if (transform.position.x > otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
-                Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
-            }
-            if (transform.position.x < otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, 1f, 0f);
-                Camera.main.transform.position += new Vector3(-.05f, 0f, 0f);
-            }
-            yield return new WaitForSeconds(.08f);
-            Debug.Log("waited");
-        }
-        resetWorld();
-    }*/
 }

@@ -11,7 +11,6 @@ public class Jump : MonoBehaviour
     public float gravity;
 
     public bool isGrounded; //result of raycast below the player
-    bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
     
 
