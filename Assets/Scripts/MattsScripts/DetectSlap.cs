@@ -23,6 +23,7 @@ public class DetectSlap : MonoBehaviour
 
     public AudioSource soundManager;
     public AudioClip win;
+    public AudioClip KO;
 
     public GameObject slapEffect;
 
@@ -124,6 +125,7 @@ public class DetectSlap : MonoBehaviour
     IEnumerator GameEnd() //Displays Win Text
     {
         Time.timeScale = 0f;
+        AudioManager.Instance.PlayOneShot(KO);
         for (int i = 0; i < 20; i++)
         {
             KOImage.fillAmount += .05f;
