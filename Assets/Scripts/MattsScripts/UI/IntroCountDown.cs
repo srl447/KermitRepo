@@ -12,15 +12,6 @@ public class IntroCountDown : MonoBehaviour
 
     public Image countdownImage;
 
-    public Walking kermitWalk;
-    public Walking darkKermitWalk;
-    public Slap kermitSlap;
-    public Slap darkKermitSlap;
-    public Jump kermitJump;
-    public Jump darkKermitJump;
-    public Block kermitBlock;
-    public DarkBlock darkKermitBlock;
-
     public void Awake()
     {
         countdownImage = GetComponent<Image>();
@@ -33,14 +24,8 @@ public class IntroCountDown : MonoBehaviour
 
     public IEnumerator Countdown()
     {
-        kermitBlock.enabled = false;
-        kermitJump.enabled = false;
-        kermitSlap.enabled = false;
-        kermitWalk.enabled = false;
-        darkKermitBlock.enabled = false;
-        darkKermitJump.enabled = false;
-        darkKermitSlap.enabled = false;
-        darkKermitWalk.enabled = false;
+        GlobalPause.Instance.DisableMovement();
+
         //enable image
         countdownImage.enabled = true;
 
@@ -93,13 +78,6 @@ public class IntroCountDown : MonoBehaviour
         // Turn off the Countdown Image
         countdownImage.enabled = false;
 
-        kermitBlock.enabled = true;
-        kermitJump.enabled = true;
-        kermitSlap.enabled = true;
-        kermitWalk.enabled = true;
-        darkKermitBlock.enabled = true;
-        darkKermitJump.enabled = true;
-        darkKermitSlap.enabled = true;
-        darkKermitWalk.enabled = true;
+        GlobalPause.Instance.EnableMovement();
     }
 }
