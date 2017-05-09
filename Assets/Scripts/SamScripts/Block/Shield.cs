@@ -6,6 +6,7 @@ public class Shield : MonoBehaviour {
 
     public GameObject arm1, arm2, player; //arms to change tag from slap to disable them
     public Walking walk;
+    public AudioClip blockSound, blockSound2;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,9 +29,13 @@ public class Shield : MonoBehaviour {
         {
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-10000f, 0f, 0f)); //applies force to shield backwards when hit
             player.GetComponent<Rigidbody>().AddForce(new Vector3(-10000f, 0f, 0f)); //same but for player
+            AudioManager.Instance.audioSource.PlayOneShot(blockSound, 1.7f);
+            AudioManager.Instance.audioSource.PlayOneShot(blockSound2);
         }
         else if (collision.gameObject == arm2 && !walk.flipped)
         {
+            AudioManager.Instance.audioSource.PlayOneShot(blockSound, 1.7f);
+            AudioManager.Instance.audioSource.PlayOneShot(blockSound2);
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(10000f, 0f, 0f)); //applies force to shield backwards when hit
             player.GetComponent<Rigidbody>().AddForce(new Vector3(10000f, 0f, 0f)); //same but for player
         }

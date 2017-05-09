@@ -11,7 +11,6 @@ public class Jump : MonoBehaviour
     public float gravity;
 
     public bool isGrounded; //result of raycast below the player
-    bool alreadyJumped = false; //has the player jumped?
     bool movementFinal = false;
     
 
@@ -34,7 +33,7 @@ public class Jump : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
 			kermitAnim.SetInteger ("State", 3);
-			soundManager.PlayOneShot(jump);
+			AudioManager.Instance.audioSource.PlayOneShot(jump);
             movementFinal = true;
         }
         

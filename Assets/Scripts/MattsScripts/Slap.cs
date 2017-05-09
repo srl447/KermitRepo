@@ -12,6 +12,8 @@ public class Slap : MonoBehaviour
     public Animator animator;
     private Walking _walkingScript;
 
+    public AudioClip slap;
+
     public TrailRenderer[] trailRenderers;
 
     private int dir;
@@ -39,7 +41,7 @@ public class Slap : MonoBehaviour
     IEnumerator SlapAction()
     {
         IsSlapping = true;
-
+        AudioManager.Instance.audioSource.PlayOneShot(slap, 1.3f);
 
         foreach (TrailRenderer trail in trailRenderers)
         {
