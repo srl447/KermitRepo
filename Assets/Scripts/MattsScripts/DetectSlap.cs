@@ -10,11 +10,12 @@ public class DetectSlap : MonoBehaviour
 
     public UI_Rounds ui_roundsScript;
     public Image winImage;
+    public Image KOImage;
     public Vector3 startPos;
     public Vector3 startRot;
     Vector3 cameraStartPos;
     Vector3 cameraStartRot;
-    Vector3 rotatePoint;
+    //Vector3 rotatePoint;
     bool rotateCamera;
     bool finalRotate;
     public DetectSlap otherPlayer;
@@ -56,7 +57,7 @@ public class DetectSlap : MonoBehaviour
             else  if (winCount == 3)
             {
                 _animator.SetTrigger("React");
-                GameEnd();
+                StartCoroutine(GameEnd());
             }
         }
     }
@@ -120,11 +121,25 @@ public class DetectSlap : MonoBehaviour
         otherPlayer.transform.eulerAngles = otherPlayer.startRot;
     }
 
-    void GameEnd() //Displays Win Text and different camera rotate
+    IEnumerator GameEnd() //Displays Win Text
     {
+        Time.timeScale = 0f;
+        KOImage.enabled = !KOImage.enabled;
+        yield return new WaitForSecondsRealtime(1f);
+        KOImage.enabled = !KOImage.enabled;
         winImage.enabled = !winImage.enabled;
+        if (transform.position.x < otherPlayer.transform.position.x)
+        {
+            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) + 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
+            Camera.main.transform.eulerAngles = new Vector3(20f, -45f, 0f);
+        }
+        if (transform.position.x > otherPlayer.transform.position.x)
+        {
+            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
+            Camera.main.transform.eulerAngles = new Vector3(20f, 45f, 0f);
+        }
         //finalRotate = true;
-        rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
+        //rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
     }
 
     void Update()
@@ -153,34 +168,12 @@ public class DetectSlap : MonoBehaviour
             timer = 0;
             resetWorld();
         }
-        */
         if(finalRotate) //rotates the camera forever on win
         {
             Camera.main.transform.RotateAround(rotatePoint, Vector3.up, .8f);
             Camera.main.transform.RotateAround(transform.position, Vector3.up, .8f);
             Camera.main.transform.RotateAround(otherPlayer.transform.position, Vector3.up, .8f);
         }
-
+        */
     }
-
-   /* IEnumerator cameraSwing()
-    {
-        Debug.Log("ran");
-        for (int i = 0; i < 90; i++)
-        {
-            if (transform.position.x > otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
-                Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
-            }
-            if (transform.position.x < otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, 1f, 0f);
-                Camera.main.transform.position += new Vector3(-.05f, 0f, 0f);
-            }
-            yield return new WaitForSeconds(.08f);
-            Debug.Log("waited");
-        }
-        resetWorld();
-    }*/
 }
