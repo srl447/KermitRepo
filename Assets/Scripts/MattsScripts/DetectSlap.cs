@@ -43,6 +43,7 @@ public class DetectSlap : MonoBehaviour
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
+            GlobalPause.Instance.DisableMovement();
             // Shows Slap POW Effect
             GameObject effectObject = GameObject.Instantiate(slapEffect);
             effectObject.transform.position = new Vector3(col.contacts[0].point.x, col.contacts[0].point.y + 1f, col.contacts[0].point.z);
@@ -120,6 +121,7 @@ public class DetectSlap : MonoBehaviour
         Camera.main.transform.eulerAngles = cameraStartRot;
         otherPlayer.transform.position = otherPlayer.startPos;
         otherPlayer.transform.eulerAngles = otherPlayer.startRot;
+        GlobalPause.Instance.EnableMovement();
     }
 
     IEnumerator GameEnd() //Displays Win Text
@@ -144,6 +146,7 @@ public class DetectSlap : MonoBehaviour
             Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
             Camera.main.transform.eulerAngles = new Vector3(20f, 45f, 0f);
         }
+        GlobalPause.Instance.EnableMovement();
         //finalRotate = true;
         //rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
     }
