@@ -32,7 +32,7 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
-			kermitAnim.SetInteger ("State", 3);
+			kermitAnim.SetTrigger("Jump");
 			AudioManager.Instance.audioSource.PlayOneShot(jump);
             movementFinal = true;
         }
@@ -48,7 +48,7 @@ public class Jump : MonoBehaviour
         {
             _rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             movementFinal = false;
-
+			kermitAnim.ResetTrigger ("Jump");
         }
         else if (!isGrounded)
         {
