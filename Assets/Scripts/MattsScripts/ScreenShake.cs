@@ -8,7 +8,7 @@ using UnityEngine;
 public class ScreenShake : MonoBehaviour
 {
 
-    public static float shakeStrength = 5f;
+    public static float shakeStrength = 0f;
 
     Vector3 startPosition;
 
