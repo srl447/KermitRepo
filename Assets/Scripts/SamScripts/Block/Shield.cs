@@ -27,6 +27,8 @@ public class Shield : MonoBehaviour {
     {
         if (collision.gameObject == arm2 && walk.flipped)
         {
+            ScreenShake.shakeStrength = 10f;
+
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-10000f, 0f, 0f)); //applies force to shield backwards when hit
             player.GetComponent<Rigidbody>().AddForce(new Vector3(-10000f, 0f, 0f)); //same but for player
             AudioManager.Instance.audioSource.PlayOneShot(blockSound, 1.7f);
@@ -34,6 +36,8 @@ public class Shield : MonoBehaviour {
         }
         else if (collision.gameObject == arm2 && !walk.flipped)
         {
+            ScreenShake.shakeStrength = 10f;
+
             AudioManager.Instance.audioSource.PlayOneShot(blockSound, 1.7f);
             AudioManager.Instance.audioSource.PlayOneShot(blockSound2);
             gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(10000f, 0f, 0f)); //applies force to shield backwards when hit

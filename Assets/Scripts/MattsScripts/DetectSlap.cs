@@ -18,6 +18,7 @@ public class DetectSlap : MonoBehaviour
     //Vector3 rotatePoint;
     bool rotateCamera;
     bool finalRotate;
+    private bool shake;
     public DetectSlap otherPlayer;
     int timer;
 
@@ -82,6 +83,7 @@ public class DetectSlap : MonoBehaviour
         }
         //changes the variable so code can run in update
         rotateCamera = true;
+        //ScreenShake.shakeStrength = 10f;
         for (int i = 0; i < 90; i++)
         {
             if (transform.position.x > otherPlayer.transform.position.x)
