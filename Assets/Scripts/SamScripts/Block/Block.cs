@@ -20,7 +20,7 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !slap1.IsSlapping) //checking for block button
+        if (Input.GetKeyDown(KeyCode.G) && !slap1.IsSlapping) //checking for block button
         {
             StartCoroutine(blockStartup(.08f)); //starting block sequence
         }
