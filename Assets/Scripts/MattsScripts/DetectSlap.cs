@@ -123,7 +123,7 @@ public class DetectSlap : MonoBehaviour
     void GameEnd() //Displays Win Text and different camera rotate
     {
         winImage.enabled = !winImage.enabled;
-        finalRotate = true;
+        //finalRotate = true;
         rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
     }
 
