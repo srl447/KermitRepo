@@ -21,6 +21,8 @@ public class DetectSlap : MonoBehaviour
     public DetectSlap otherPlayer;
     int timer;
 
+    public IntroCountDown introCountDownScript;
+
     public AudioSource soundManager;
     public AudioClip win;
     public AudioClip KO;
@@ -37,7 +39,7 @@ public class DetectSlap : MonoBehaviour
         cameraStartPos = Camera.main.transform.position;
         cameraStartRot = Camera.main.transform.eulerAngles;
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit").GetComponent<DetectSlap>();
-        _animator = transform.GetChild(2).GetComponent<Animator>();
+        _animator = transform.GetChild(1).GetComponent<Animator>();
     }
 
     void OnCollisionStay(Collision col)
@@ -123,6 +125,8 @@ public class DetectSlap : MonoBehaviour
         otherPlayer.transform.position = otherPlayer.startPos;
         otherPlayer.transform.eulerAngles = otherPlayer.startRot;
         GlobalPause.Instance.EnableMovement();
+        StartCoroutine(introCountDownScript.Countdown());
+
     }
 
     IEnumerator GameEnd() //Displays Win Text
