@@ -124,7 +124,11 @@ public class DetectSlap : MonoBehaviour
     IEnumerator GameEnd() //Displays Win Text
     {
         Time.timeScale = 0f;
-        KOImage.enabled = !KOImage.enabled;
+        for (int i = 0; i < 20; i++)
+        {
+            KOImage.fillAmount += .05f;
+            yield return new WaitForEndOfFrame();
+        }
         yield return new WaitForSecondsRealtime(1f);
         KOImage.enabled = !KOImage.enabled;
         winImage.enabled = !winImage.enabled;
