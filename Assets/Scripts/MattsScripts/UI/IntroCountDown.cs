@@ -30,7 +30,6 @@ public class IntroCountDown : MonoBehaviour
     public IEnumerator Countdown()
     {
         GlobalPause.Instance.DisableMovement();
-
         //enable image
         countdownImage.enabled = true;
         kermitImage.enabled = true;
@@ -78,6 +77,7 @@ public class IntroCountDown : MonoBehaviour
         }
         countdownImage.transform.localScale = Vector3.one * 3f;
         yield return new WaitForSecondsRealtime(.6f);
+
 
         // FIGHT
         countdownImage.sprite = fightSprite;
