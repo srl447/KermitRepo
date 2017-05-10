@@ -31,7 +31,7 @@ public class Walking : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
             flipped = false;
         }
-        else
+        else if(otherPlayer.transform.position.x > transform.position.x)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
            flipped = true;
@@ -46,12 +46,12 @@ public class Walking : MonoBehaviour
             // TILT CODE
             if (flipped)
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -5f);
+                //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -5f);
                 kermitAnimator.SetInteger("State", 2);
             }
             else
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 5f);
+                //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 5f);
                 kermitAnimator.SetInteger("State", 1);
             }
         }
