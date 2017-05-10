@@ -27,6 +27,7 @@ public class DetectSlap : MonoBehaviour
     public AudioClip KO;
     public AudioClip victoryTheme;
     public GameObject slapEffect;
+    public GameObject UI;
 
     private Animator _animator;
 
@@ -38,6 +39,7 @@ public class DetectSlap : MonoBehaviour
         cameraStartRot = Camera.main.transform.eulerAngles;
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit").GetComponent<DetectSlap>();
         _animator = transform.GetChild(1).GetComponent<Animator>();
+        UI.SetActive(true);
     }
 
     void OnCollisionStay(Collision col)
@@ -135,7 +137,7 @@ public class DetectSlap : MonoBehaviour
         AudioManager.Instance.PlayOneShot(KO); //KO Sound
         for (int i = 0; i < 20; i++) //KO Coming in Script
         {
-            KOImage.fillAmount += .05f;
+            KOImage.fillAmount += .009f*i;
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSecondsRealtime(1f); //Wait to allow recognition of KO
@@ -144,6 +146,7 @@ public class DetectSlap : MonoBehaviour
         AudioManager.Instance.PlayOneShot(victoryTheme);
         Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
         Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
+        UI.SetActive(false);
         if (transform.position.x < otherPlayer.transform.position.x) //This stuff is temporary till we get a better end in
         {
            
