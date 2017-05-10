@@ -32,9 +32,9 @@ public class Jump : MonoBehaviour
         //JUMPING
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
-			kermitAnim.SetTrigger("Jump");
-			AudioManager.Instance.audioSource.PlayOneShot(jump);
-            movementFinal = true;
+            kermitAnim.SetTrigger("Jump");
+            AudioManager.Instance.audioSource.PlayOneShot(jump);
+            StartCoroutine(jumpStart());
         }
         
     }
@@ -54,5 +54,13 @@ public class Jump : MonoBehaviour
         {
             _rigidbody.AddForce(Vector3.down * gravity);
         }
+    }
+
+    IEnumerator jumpStart()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        movementFinal = true;
     }
 }

@@ -15,8 +15,6 @@ public class DetectSlap : MonoBehaviour
     public Vector3 startRot;
     Vector3 cameraStartPos;
     Vector3 cameraStartRot;
-    //Vector3 rotatePoint;
-    bool rotateCamera;
     bool finalRotate;
     private bool shake;
     public DetectSlap otherPlayer;
@@ -28,7 +26,6 @@ public class DetectSlap : MonoBehaviour
     public AudioClip win;
     public AudioClip KO;
     public AudioClip victoryTheme;
-
     public GameObject slapEffect;
 
     private Animator _animator;
@@ -82,7 +79,7 @@ public class DetectSlap : MonoBehaviour
             Camera.main.transform.eulerAngles = new Vector3(20f, 45f, 0f);
         }
         //changes the variable so code can run in update
-        rotateCamera = true;
+        //rotateCamera = true;
         //ScreenShake.shakeStrength = 10f;
         for (int i = 0; i < 90; i++)
         {
@@ -106,7 +103,8 @@ public class DetectSlap : MonoBehaviour
         //Color colorToChangeTo = tag == "kermit" ? ui_roundsScript.darkKermitWon : ui_roundsScript.kermitWon;
 
         Time.timeScale = 1;
-        rotateCamera = false;
+
+        //rotateCamera = false;
 
         /*if (winCount >= 3)
         {
@@ -161,36 +159,6 @@ public class DetectSlap : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(rotatePoint);
-        if (!rotateCamera) //camera tracks cente rbetween players
-        {
-            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
-        }
-        /*if (rotateCamera) //rotates the camera
-        {
-            if(transform.position.x > otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, -1f, 0f);
-                Camera.main.transform.position += new Vector3(.05f, 0f, 0f);
-            }
-            if (transform.position.x < otherPlayer.transform.position.x)
-            {
-                Camera.main.transform.eulerAngles += new Vector3(0f, 1f, 0f);
-                Camera.main.transform.position += new Vector3(-.05f, 0f, 0f);
-            }
-            timer += 1;
-        }
-        if (timer >= 90 && winCount != 3) //runs Matt's scripts when camera rotation done
-        {
-            timer = 0;
-            resetWorld();
-        }
-        if(finalRotate) //rotates the camera forever on win
-        {
-            Camera.main.transform.RotateAround(rotatePoint, Vector3.up, .8f);
-            Camera.main.transform.RotateAround(transform.position, Vector3.up, .8f);
-            Camera.main.transform.RotateAround(otherPlayer.transform.position, Vector3.up, .8f);
-        }
-        */
+        Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
 }
