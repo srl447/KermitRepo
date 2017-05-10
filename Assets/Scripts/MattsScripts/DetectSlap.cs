@@ -142,15 +142,15 @@ public class DetectSlap : MonoBehaviour
         KOImage.enabled = !KOImage.enabled; //Turn off KO
         winImage.enabled = !winImage.enabled; //Turn on Results
         AudioManager.Instance.PlayOneShot(victoryTheme);
+        Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
+        Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
         if (transform.position.x < otherPlayer.transform.position.x) //This stuff is temporary till we get a better end in
         {
-            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) + 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
-            Camera.main.transform.eulerAngles = new Vector3(20f, -45f, 0f);
+           
         }
         if (transform.position.x > otherPlayer.transform.position.x)
         {
-            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
-            Camera.main.transform.eulerAngles = new Vector3(20f, 45f, 0f);
+          
         }
         GlobalPause.Instance.EnableMovement();
         //finalRotate = true;
