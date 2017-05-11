@@ -29,6 +29,9 @@ public class DetectSlap : MonoBehaviour
     public GameObject slapEffect;
     public GameObject UI;
 
+    public GameObject winPose;
+
+
     private Animator _animator;
 
     public void Awake()
@@ -40,9 +43,10 @@ public class DetectSlap : MonoBehaviour
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit").GetComponent<DetectSlap>();
         _animator = transform.GetChild(1).GetComponent<Animator>();
         UI.SetActive(true);
+        winPose.SetActive(false);
     }
 
-    void OnCollisionStay(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
@@ -147,14 +151,7 @@ public class DetectSlap : MonoBehaviour
         Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
         Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
         UI.SetActive(false);
-        if (transform.position.x < otherPlayer.transform.position.x) //This stuff is temporary till we get a better end in
-        {
-           
-        }
-        if (transform.position.x > otherPlayer.transform.position.x)
-        {
-          
-        }
+        winPose.SetActive(true);
         GlobalPause.Instance.EnableMovement();
         //finalRotate = true;
         //rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
