@@ -27,6 +27,10 @@ public class DetectSlap : MonoBehaviour
     public AudioClip KO;
     public AudioClip victoryTheme;
     public GameObject slapEffect;
+    public GameObject UI;
+
+    public GameObject winPose;
+
 
     private Animator _animator;
 
@@ -38,9 +42,11 @@ public class DetectSlap : MonoBehaviour
         cameraStartRot = Camera.main.transform.eulerAngles;
         otherPlayer = GameObject.FindGameObjectWithTag(tag == "kermit" ? "darkKermit" : "kermit").GetComponent<DetectSlap>();
         _animator = transform.GetChild(1).GetComponent<Animator>();
+        UI.SetActive(true);
+        winPose.SetActive(false);
     }
 
-    void OnCollisionStay(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "slap") //Now this just starts my script and freezes time
         {
@@ -135,23 +141,17 @@ public class DetectSlap : MonoBehaviour
         AudioManager.Instance.PlayOneShot(KO); //KO Sound
         for (int i = 0; i < 20; i++) //KO Coming in Script
         {
-            KOImage.fillAmount += .05f;
+            KOImage.fillAmount += .009f*i;
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSecondsRealtime(1f); //Wait to allow recognition of KO
         KOImage.enabled = !KOImage.enabled; //Turn off KO
         winImage.enabled = !winImage.enabled; //Turn on Results
         AudioManager.Instance.PlayOneShot(victoryTheme);
-        if (transform.position.x < otherPlayer.transform.position.x) //This stuff is temporary till we get a better end in
-        {
-            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) + 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
-            Camera.main.transform.eulerAngles = new Vector3(20f, -45f, 0f);
-        }
-        if (transform.position.x > otherPlayer.transform.position.x)
-        {
-            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2) - 3, cameraStartPos.y - 3, cameraStartPos.z + 11.4f);
-            Camera.main.transform.eulerAngles = new Vector3(20f, 45f, 0f);
-        }
+        Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
+        Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
+        UI.SetActive(false);
+        winPose.SetActive(true);
         GlobalPause.Instance.EnableMovement();
         //finalRotate = true;
         //rotatePoint = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), ((transform.position.y + otherPlayer.transform.position.y) / 2), ((transform.position.z + otherPlayer.transform.position.z) / 2));
