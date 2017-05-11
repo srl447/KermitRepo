@@ -17,5 +17,10 @@ public class Reset : MonoBehaviour {
             Time.timeScale = 1;
             SceneManager.LoadScene(0); //fix or remove later
         }
-	}
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
+    }
 }

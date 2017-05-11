@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     public int RoundCount = 0;
     public bool Paused = false;
+    public bool stopCamera;
    
 
     void Awake()

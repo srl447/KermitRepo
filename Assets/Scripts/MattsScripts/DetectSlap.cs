@@ -44,6 +44,7 @@ public class DetectSlap : MonoBehaviour
         _animator = transform.GetChild(1).GetComponent<Animator>();
         UI.SetActive(true);
         winPose.SetActive(false);
+        GameManager.Instance.stopCamera = false;
     }
 
     void OnCollisionEnter(Collision col)
@@ -148,6 +149,7 @@ public class DetectSlap : MonoBehaviour
         KOImage.enabled = !KOImage.enabled; //Turn off KO
         winImage.enabled = !winImage.enabled; //Turn on Results
         AudioManager.Instance.PlayOneShot(victoryTheme);
+        GameManager.Instance.stopCamera = true;
         Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
         Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
         UI.SetActive(false);
@@ -159,6 +161,15 @@ public class DetectSlap : MonoBehaviour
 
     void Update()
     {
-        Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
+        if (!GameManager.Instance.stopCamera)
+        {
+            Camera.main.transform.position = new Vector3(((transform.position.x + otherPlayer.transform.position.x) / 2), Camera.main.transform.position.y, Camera.main.transform.position.z);
+        }
+        else
+        {
+            Camera.main.transform.position = new Vector3(.85f, -13.57f, -75.31f);
+            Camera.main.transform.eulerAngles = new Vector3(12.77f, -19.026f, 2.565f);
+        }
+
     }
 }
