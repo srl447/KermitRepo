@@ -17,6 +17,8 @@ public class IntroCountDown : MonoBehaviour
     public Image kermitImage;
     public Image darkKermitImage;
 
+    public Animator anim, dAnim;
+
     public void Awake()
     {
         countdownImage = GetComponent<Image>();
@@ -34,6 +36,9 @@ public class IntroCountDown : MonoBehaviour
         countdownImage.enabled = true;
         kermitImage.enabled = true;
         darkKermitImage.enabled = true;
+
+        anim.SetInteger("State", 0);
+        dAnim.SetInteger("State", 0);
 
         // 3
         countdownImage.sprite = threeSprite;
